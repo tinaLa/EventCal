@@ -1,2 +1,2 @@
-# EventSync
-EventSync is an iOS app that helps people plan social events.
+# EventCal
+EventCal is an iOS app that allows users to create shareable social calendars to manage and plan their social events.
