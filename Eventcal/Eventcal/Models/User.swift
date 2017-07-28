@@ -14,19 +14,16 @@ class User : NSObject {
     let uid : String
     let firstName : String
     let lastName : String
-    let username : String
     var dictValue: [String : Any] {
         return ["firstName" : firstName,
-                "lastName" : lastName,
-                "username" : username]
+                "lastName" : lastName]
     }
     
     //Standard User init()
-    init(uid: String, username: String, firstName: String, lastName: String) {
+    init(uid: String, firstName: String, lastName: String) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
-        self.username = username
         super.init()
     }
     
@@ -34,27 +31,23 @@ class User : NSObject {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let firstName = dict["firstName"] as? String,
-            let lastName = dict["lastName"] as? String,
-            let username = dict["username"] as? String
+            let lastName = dict["lastName"] as? String
             else { return nil }
         self.uid = snapshot.key
         self.firstName = firstName
         self.lastName = lastName
-        self.username = username
     }
     
     //UserDefaults
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: "uid") as? String,
             let firstName = aDecoder.decodeObject(forKey: "firstName") as? String,
-            let lastName = aDecoder.decodeObject(forKey: "lastName") as? String,
-            let username = aDecoder.decodeObject(forKey: "username") as? String
+            let lastName = aDecoder.decodeObject(forKey: "lastName") as? String
             else { return nil }
         
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
-        self.username = username
     }
     
     
@@ -85,6 +78,5 @@ extension User: NSCoding {
         aCoder.encode(uid, forKey: "uid")
         aCoder.encode(firstName, forKey: "firstName")
         aCoder.encode(lastName, forKey: "lastName")
-        aCoder.encode(username, forKey: "username")
     }
 }

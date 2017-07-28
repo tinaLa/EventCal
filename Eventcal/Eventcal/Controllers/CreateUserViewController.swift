@@ -13,7 +13,6 @@ class CreateUserViewController: UIViewController {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
@@ -38,10 +37,8 @@ class CreateUserViewController: UIViewController {
     @IBAction func signUpClicked(_ sender: UIButton) {
         guard let firstName = firstNameTextField.text,
             let lastName = lastNameTextField.text,
-            let username = usernameTextField.text,
             let email = emailTextField.text,
             let password = passwordTextField.text,
-            !username.isEmpty,
             !firstName.isEmpty,
             !lastName.isEmpty
             else {
@@ -54,7 +51,7 @@ class CreateUserViewController: UIViewController {
                 return
             }
             
-            UserService.create(firUser, username: username, firstName: firstName, lastName: lastName) { (user) in
+            UserService.create(firUser, firstName: firstName, lastName: lastName) { (user) in
                 guard let user = user else {
                     return
                 }
