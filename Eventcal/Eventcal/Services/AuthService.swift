@@ -178,8 +178,13 @@ struct AuthService {
         case "The email address is badly formatted.":
             let invalidEmail = UIAlertController(title: "Email is not properly formatted.", message:
                 "Please enter a valid email to sign up with..", preferredStyle: UIAlertControllerStyle.alert)
-            invalidEmail.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            invalidEmail.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
             controller.present(invalidEmail, animated: true, completion: nil)
+            break;
+        case "The email address is already in use by another account.":
+            let accountExists = UIAlertController(title: "You already have an account!", message: "An account already exists with this email. Return to the login screen to reset your password.", preferredStyle: UIAlertControllerStyle.alert)
+            accountExists.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            controller.present(accountExists, animated: true, completion: nil)
             break;
         default:
             let generalErrorAlert = UIAlertController(title: "We are having trouble signing you up.", message:
