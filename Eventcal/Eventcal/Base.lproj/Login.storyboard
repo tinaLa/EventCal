@@ -132,6 +132,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="facebookLoginButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jk0-bC-FPd"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-facebook" translatesAutoresizingMaskIntoConstraints="NO" id="Bhs-Sw-0gn">
                                 <rect key="frame" x="45" y="270.5" width="25" height="25"/>
@@ -214,6 +217,7 @@
                     <connections>
                         <outlet property="createAccountButton" destination="iT2-k9-9Sa" id="4zf-tC-9mT"/>
                         <outlet property="emailTextField" destination="uGk-yz-gl9" id="5oh-As-xmX"/>
+                        <outlet property="facebookLoginButton" destination="erc-96-9Fa" id="c9z-fL-APr"/>
                         <outlet property="logInButton" destination="13f-zx-wmL" id="FMZ-Fc-Psy"/>
                         <outlet property="passwordTextField" destination="lD2-We-Wew" id="Nm7-V1-LN9"/>
                         <segue destination="6xh-m6-fMI" kind="show" identifier="createUser" id="VNQ-D1-IJP"/>

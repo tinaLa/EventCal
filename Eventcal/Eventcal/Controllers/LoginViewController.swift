@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
@@ -13,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var facebookLoginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,19 @@ class LoginViewController: UIViewController {
     
     @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
         print("Returned to Login Screen!")
+    }
+    
+    
+    @IBAction func facebookLoginButtonClicked(_ sender: Any) {
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
+            if err != nil {
+                print("Facebook login has failed.")
+                return
+            }
+            
+            print("Facebook login was successful.")
+        }
+        
     }
     
     @IBAction func loginClicked(_ sender: UIButton) {

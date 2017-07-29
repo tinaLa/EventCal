@@ -10,5 +10,11 @@ target 'Eventcal' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Firebase/AuthUI'
+  
+  # Pods for Facebook login
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
   
 end
