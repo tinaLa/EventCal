@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
@@ -43,6 +44,7 @@ class LoginViewController: UIViewController {
     }
     
     
+    // MARK: - Facebook Login
     @IBAction func facebookLoginButtonClicked(_ sender: Any) {
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
             if err != nil {
@@ -51,10 +53,26 @@ class LoginViewController: UIViewController {
             }
             
             print("Facebook login was successful.")
+            
+            // print(result?.token.tokenString)
         }
         
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else {
+            return
+        }
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        Auth.auth().signIn(with: credentials) { (user, error) in
+            if error != nil {
+                print("FB + Firebase authentification failed")
+                return
+            }
+            
+            print("FB + Firebase authentification was successful")
+        }
     }
     
+    // MARK: - Firebase Login
     @IBAction func loginClicked(_ sender: UIButton) {
         dismissKeyboard()
         guard let email = emailTextField.text,
