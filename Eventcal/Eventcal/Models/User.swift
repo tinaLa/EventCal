@@ -7,10 +7,11 @@
 import Foundation
 import UIKit
 import FirebaseDatabase.FIRDataSnapshot
+import FBSDKCoreKit
 
 class User : NSObject {
     
-    //User variables
+    // User variables
     let uid : String
     let firstName : String
     let lastName : String
@@ -19,7 +20,7 @@ class User : NSObject {
                 "lastName" : lastName]
     }
     
-    //Standard User init()
+    // Standard User init()
     init(uid: String, firstName: String, lastName: String) {
         self.uid = uid
         self.firstName = firstName
@@ -27,7 +28,7 @@ class User : NSObject {
         super.init()
     }
     
-    //User init using Firebase snapshots
+    // User init using Firebase snapshots
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let firstName = dict["firstName"] as? String,
@@ -38,7 +39,7 @@ class User : NSObject {
         self.lastName = lastName
     }
     
-    //UserDefaults
+    // UserDefaults
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: "uid") as? String,
             let firstName = aDecoder.decodeObject(forKey: "firstName") as? String,
@@ -71,6 +72,36 @@ class User : NSObject {
         
         _current = user
     }
+    
+    class func getFacebookFirstName() -> String? {
+        var firstName: String?
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "first_name"]).start { (connection, result, error) in
+            if error != nil {
+                print("failed to start graph request")
+                return
+            }
+            let dict = result as! [String: Any]
+            if let fetchName = dict["first_name"] {
+                firstName = String(describing: fetchName)
+            }
+            print(firstName!)
+        }
+        return firstName
+    }
+    
+    class func getFacebookLastName() -> String? {
+        var lastName: String?
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "last_name"]).start { (connection, result, error) in
+            if error != nil {
+                print("failed to start graph request")
+                return
+            }
+            
+            lastName = String(describing: result)
+        }
+        return lastName
+    }
+
 }
 
 extension User: NSCoding {

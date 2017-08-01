@@ -11,6 +11,9 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
+    var first: String?
+    var last: String?
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
@@ -46,6 +49,8 @@ class LoginViewController: UIViewController {
     
     // MARK: - Facebook Login
     @IBAction func facebookLoginButtonClicked(_ sender: Any) {
+        
+        // present Facebook login window in app
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
             if err != nil {
                 print("Facebook login has failed.")
@@ -53,22 +58,45 @@ class LoginViewController: UIViewController {
             }
             
             print("Facebook login was successful.")
-            
-            // print(result?.token.tokenString)
         }
         
+        // sign in Facebook user to Firebase
         let accessToken = FBSDKAccessToken.current()
         guard let accessTokenString = accessToken?.tokenString else {
             return
         }
         let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
-        Auth.auth().signIn(with: credentials) { (user, error) in
-            if error != nil {
-                print("FB + Firebase authentification failed")
+        AuthService.facebookSignIn(controller: self, credential: credentials) { (authUser) in
+            guard let authUser = authUser else {
+                print("error: FIRUser does not exist")
                 return
             }
             
-            print("FB + Firebase authentification was successful")
+            UserService.show(forUID: authUser.uid) { (user) in
+                if let user = user {
+                    User.setCurrent(user, writeToUserDefaults: true)
+                    let initialViewController = UIStoryboard.initialViewController(for: .main)
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
+                }
+                else {
+                    self.first = User.getFacebookFirstName()
+                    self.last = User.getFacebookLastName()
+                    if let firstName = self.first, let lastName = self.last {
+                    UserService.create(authUser, firstName: firstName, lastName: lastName, completion: { (user) in
+                        guard let user = user else {
+                            return
+                        }
+                        
+                        User.setCurrent(user, writeToUserDefaults: true)
+                        let initialViewController = UIStoryboard.initialViewController(for: .main)
+                        self.view.window?.rootViewController = initialViewController
+                        self.view.window?.makeKeyAndVisible()
+                    })
+                    }
+                }
+            }
+            
         }
     }
     
@@ -76,7 +104,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginClicked(_ sender: UIButton) {
         dismissKeyboard()
         guard let email = emailTextField.text,
-            let password = passwordTextField.text else{
+            let password = passwordTextField.text else {
             return
         }
         AuthService.signIn(controller: self, email: email, password: password) { (user) in

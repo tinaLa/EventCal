@@ -21,8 +21,18 @@ struct AuthService {
         }
     }
     
+    static func facebookSignIn(controller: UIViewController, credential: AuthCredential, completion: @escaping (FIRUser?) -> Void) {
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                facebookLoginErrors(error: error, controller: controller)
+                return completion(nil)
+            }
+            return completion(user)
+        }
+    }
+    
     // Creates an authenticated user on Firebase
-    static func createUser(controller : UIViewController, email: String, password: String, completion: @escaping (FIRUser?) -> Void){
+    static func createUser(controller : UIViewController, email: String, password: String, completion: @escaping (FIRUser?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 signUpErrors(error: error, controller: controller)
@@ -169,6 +179,15 @@ struct AuthService {
                 "There was an error logging you in. Please try again soon.", preferredStyle: UIAlertControllerStyle.alert)
             loginFailedAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
             controller.present(loginFailedAlert, animated: true, completion: nil)
+            break;
+        }
+    }
+    
+    private static func facebookLoginErrors(error: Error, controller: UIViewController) {
+        switch (error.localizedDescription) {
+        case "":
+            break;
+        default:
             break;
         }
     }
