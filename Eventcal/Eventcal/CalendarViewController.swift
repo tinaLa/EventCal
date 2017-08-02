@@ -81,7 +81,15 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         let startDate = formatter.date(from: "2017 01 01")!
         let endDate = formatter.date(from: "2017 12 31")!
         
-        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)
+        let parameters = ConfigurationParameters(
+            startDate: startDate,
+            endDate: endDate,
+            numberOfRows: 6,
+            calendar: Calendar.current,
+            generateInDates: .forAllMonths,
+            generateOutDates: .tillEndOfRow,
+            firstDayOfWeek: .sunday,
+            hasStrictBoundaries: true)
         return parameters
     }
 }
