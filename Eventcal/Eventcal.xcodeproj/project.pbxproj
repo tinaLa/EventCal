@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C79880A9D52AC105B2F6D4C /* Pods_Eventcal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D74D093D7144160479D9D8D /* Pods_Eventcal.framework */; };
+		961A321C1F30F1060082A789 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A321B1F30F1060082A789 /* CustomCell.swift */; };
 		9643EA861F2A3A7E001C8D2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9643EA851F2A3A7E001C8D2C /* GoogleService-Info.plist */; };
 		9643EA8F1F2A3CCD001C8D2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9643EA8B1F2A3CCD001C8D2C /* LaunchScreen.storyboard */; };
 		9643EA901F2A3CCD001C8D2C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9643EA8C1F2A3CCD001C8D2C /* Login.storyboard */; };
@@ -22,12 +23,14 @@
 		9643EAA21F2A4268001C8D2C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA991F2A4268001C8D2C /* UserService.swift */; };
 		9643EAA31F2A4268001C8D2C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA9A1F2A4268001C8D2C /* User.swift */; };
 		9643EAA51F2A4355001C8D2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9643EAA41F2A4355001C8D2C /* Assets.xcassets */; };
+		96811ED91F31016F0057909C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96811ED81F31016F0057909C /* CalendarViewController.swift */; };
 		96E87EDA1F2A251700D8009B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E87ED91F2A251700D8009B /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2822D64C98AF492AD8C03650 /* Pods-Eventcal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventcal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eventcal/Pods-Eventcal.debug.xcconfig"; sourceTree = "<group>"; };
 		3D74D093D7144160479D9D8D /* Pods_Eventcal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventcal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		961A321B1F30F1060082A789 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		9643EA851F2A3A7E001C8D2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9643EA8B1F2A3CCD001C8D2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9643EA8C1F2A3CCD001C8D2C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		9643EA991F2A4268001C8D2C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
 		9643EA9A1F2A4268001C8D2C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		9643EAA41F2A4355001C8D2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96811ED81F31016F0057909C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		96E87ED61F2A251600D8009B /* Eventcal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventcal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E87ED91F2A251700D8009B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E87EE51F2A251700D8009B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 				9643EA951F2A4268001C8D2C /* ForgotPasswordViewController.swift */,
 				9643EA961F2A4268001C8D2C /* LoginViewController.swift */,
 				9643EA971F2A4268001C8D2C /* MainViewController.swift */,
+				96811ED81F31016F0057909C /* CalendarViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				9643EA9A1F2A4268001C8D2C /* User.swift */,
+				961A321B1F30F1060082A789 /* CustomCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -292,8 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96811ED91F31016F0057909C /* CalendarViewController.swift in Sources */,
 				9643EAA01F2A4268001C8D2C /* MainViewController.swift in Sources */,
 				9643EA9F1F2A4268001C8D2C /* LoginViewController.swift in Sources */,
+				961A321C1F30F1060082A789 /* CustomCell.swift in Sources */,
 				9643EAA21F2A4268001C8D2C /* UserService.swift in Sources */,
 				9643EA9C1F2A4268001C8D2C /* ViewController+Utility.swift in Sources */,
 				9643EA9E1F2A4268001C8D2C /* ForgotPasswordViewController.swift in Sources */,
