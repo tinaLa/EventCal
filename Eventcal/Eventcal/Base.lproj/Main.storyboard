@@ -256,6 +256,9 @@
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="calendarView" destination="ALG-4Z-n55" id="Q2u-VX-YPE"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-479.19999999999999" y="550.97451274362822"/>
