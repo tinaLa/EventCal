@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
-        print("Returned to Login Screen!")
+        print("Returned to login Screen!")
     }
     
     

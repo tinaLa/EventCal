@@ -28,6 +28,14 @@ class ForgotPasswordViewController: UIViewController {
         }
         AuthService.passwordReset(email: email)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "unwindPassToLogin" {
+                print("Back to login screen!")
+            }
+        }
+    }
 }
 
 extension ForgotPasswordViewController{

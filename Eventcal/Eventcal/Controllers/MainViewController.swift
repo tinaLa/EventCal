@@ -22,10 +22,6 @@ class MainViewController: UIViewController {
         
         authHandle = AuthService.authListener(viewController: self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     deinit {
         AuthService.removeAuthListener(authHandle: authHandle)
@@ -42,5 +38,4 @@ class MainViewController: UIViewController {
         }
         AuthService.presentDelete(viewController: self, user : user)
     }
-    
 }
