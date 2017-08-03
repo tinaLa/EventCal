@@ -78,10 +78,15 @@
                             <constraint firstItem="Vji-tN-1ni" firstAttribute="leading" secondItem="m03-uq-8Ar" secondAttribute="leadingMargin" constant="30" id="mkt-Co-S1B"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wlX-Vt-u73"/>
+                    <navigationItem key="navigationItem" id="wlX-Vt-u73">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hWL-PX-dUl">
+                            <connections>
+                                <segue destination="ena-r6-WGQ" kind="unwind" unwindAction="cancelToPlayersViewControllerWithSegue:" id="Wg0-K5-0tP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="qwu-dC-urs" id="Dbi-f1-m8u"/>
-                        <segue destination="ena-r6-WGQ" kind="unwind" identifier="unwindSettingsToCalendar" unwindAction="unwindToCalendar:" id="gze-uo-oTJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLf-VD-Mva" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -89,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="1471.2" y="207.34632683658174"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Event View Controller-->
         <scene sceneID="BGt-0G-JIo">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="j8t-i2-77g" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="j8t-i2-77g" customClass="CreateEventViewController" customModule="Eventcal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zmG-v2-Yqt"/>
                         <viewControllerLayoutGuide type="bottom" id="vFJ-Du-hzp"/>
@@ -102,31 +107,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F03-5F-uJ4">
-                                <rect key="frame" x="69" y="92" width="290" height="30"/>
+                                <rect key="frame" x="16" y="92" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="sEx-OZ-2wZ">
-                                <rect key="frame" x="0.0" y="242" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="523467875.62015402">
-                                    <!--2017-08-03 15:44:35 +0000-->
-                                </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
-                                    <!--2037-12-31 11:00:00 +0000-->
-                                </date>
-                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CHS-B6-4nq"/>
+                    <navigationItem key="navigationItem" id="CHS-B6-4nq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Vug-6W-ast">
+                            <connections>
+                                <segue destination="mvh-Zt-gI2" kind="unwind" unwindAction="cancelToPlayersViewControllerWithSegue:" id="3cn-Hk-toW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eGx-f3-xRb">
+                            <connections>
+                                <segue destination="mvh-Zt-gI2" kind="unwind" unwindAction="saveEventDetailsWithSegue:" id="Z5M-jU-IQ5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="mvh-Zt-gI2" kind="unwind" identifier="unwindEventToCalendar" unwindAction="unwindToCalendar:" id="NSV-H6-5PI"/>
+                        <outlet property="eventTitleTextField" destination="F03-5F-uJ4" id="402-5x-1nq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nut-G4-V9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,13 +324,15 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uva-SS-59A">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="XX2-nu-eiN" kind="presentation" id="vHa-gS-iCB"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="calendarMonth" destination="2N0-u5-NYe" id="Neq-yU-M5p"/>
                         <outlet property="calendarView" destination="ALG-4Z-n55" id="Q2u-VX-YPE"/>
                         <outlet property="calendarYear" destination="7d6-82-LCb" id="QX2-mh-ztR"/>
-                        <segue destination="BcQ-Oz-ZyZ" kind="presentation" id="XHI-pQ-jO8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQe-wm-S7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -374,24 +379,6 @@
             <point key="canvasLocation" x="-1418.4000000000001" y="550.97451274362822"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Mo4-ir-9fu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BcQ-Oz-ZyZ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Udg-GO-cqY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="j8t-i2-77g" kind="relationship" relationship="rootViewController" id="kDt-sS-fv6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hVc-Kz-uv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="532" y="906.29685157421295"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="OF6-2h-TLM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ILJ-c9-hKb" sceneMemberID="viewController">
@@ -408,6 +395,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwX-5V-lAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="532" y="207.34632683658174"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dzk-It-tRi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XX2-nu-eiN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iLc-sO-4Df">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="j8t-i2-77g" kind="relationship" relationship="rootViewController" id="sGy-Zb-QeZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldf-Gx-f7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="906.29685157421295"/>
         </scene>
     </scenes>
     <resources>

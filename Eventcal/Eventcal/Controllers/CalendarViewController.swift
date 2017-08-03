@@ -18,10 +18,15 @@ class CalendarViewController: UIViewController {
     
     let formatter = DateFormatter()
 
-    // MARK: - viewDidLoad
+    // MARK: - viewDidLoad and segues
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
+    }
+    
+    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) { }
+    @IBAction func saveEventDetails(segue:UIStoryboardSegue) {
+        
     }
     
     // MARK: - Calendar UI Configuration
