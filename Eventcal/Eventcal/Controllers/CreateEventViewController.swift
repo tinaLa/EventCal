@@ -15,10 +15,10 @@ class CreateEventViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
+        displayDateAndTime()
     }
     
     func createDatePicker() {
@@ -38,14 +38,16 @@ class CreateEventViewController: UIViewController {
     }
     
     func doneButtonTapped() {
-        
+        displayDateAndTime()
+        self.view.endEditing(true)
+    }
+    
+    func displayDateAndTime() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
+        dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
         
         dateAndTimeTextField.text = dateFormatter.string(from: datePicker.date)
-        self.view.endEditing(true)
-        
     }
 
 }

@@ -27,6 +27,12 @@ class CalendarViewController: UIViewController {
     @IBAction func cancelToPlayersViewController(segue: UIStoryboardSegue) { }
     @IBAction func saveEventDetails(segue: UIStoryboardSegue) { }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationNavigationController = segue.destination as! UINavigationController
+        let targetController = destinationNavigationController.topViewController as! CreateEventViewController
+        targetController.datePicker.date = calendarView.selectedDates[0]
+    }
+    
     // MARK: - Calendar UI Configuration
     func setUpCalendar() {
         
