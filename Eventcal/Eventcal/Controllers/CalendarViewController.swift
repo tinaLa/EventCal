@@ -24,11 +24,9 @@ class CalendarViewController: UIViewController {
         setUpCalendar()
     }
     
-    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) { }
-    @IBAction func saveEventDetails(segue:UIStoryboardSegue) {
-        
-    }
-    
+    @IBAction func cancelToPlayersViewController(segue: UIStoryboardSegue) { }
+    @IBAction func saveEventDetails(segue: UIStoryboardSegue) { }
+
     // MARK: - Calendar UI Configuration
     func setUpCalendar() {
         

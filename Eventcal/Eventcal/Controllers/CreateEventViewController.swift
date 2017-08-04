@@ -11,9 +11,41 @@ import UIKit
 class CreateEventViewController: UIViewController {
 
     @IBOutlet weak var eventTitleTextField: UITextField!
+    @IBOutlet weak var dateAndTimeTextField: UITextField!
+    
+    let datePicker = UIDatePicker()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDatePicker()
+    }
+    
+    func createDatePicker() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // bar button "done" for toolbar
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonTapped))
+        
+        toolbar.setItems([flexibleSpace, doneButton], animated: true)
+        
+        dateAndTimeTextField.inputAccessoryView = toolbar
+        dateAndTimeTextField.inputView = datePicker
+    }
+    
+    func doneButtonTapped() {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .short
+        
+        dateAndTimeTextField.text = dateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+        
     }
 
 }

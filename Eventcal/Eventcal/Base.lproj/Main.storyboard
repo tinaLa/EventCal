@@ -110,7 +110,14 @@
                                 <rect key="frame" x="16" y="92" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When is it?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-XP-cnt">
+                                <rect key="frame" x="16" y="130" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -129,6 +136,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateAndTimeTextField" destination="rMg-XP-cnt" id="HnH-Fm-UYg"/>
                         <outlet property="eventTitleTextField" destination="F03-5F-uJ4" id="402-5x-1nq"/>
                     </connections>
                 </viewController>
@@ -325,7 +333,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uva-SS-59A">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="XX2-nu-eiN" kind="presentation" id="vHa-gS-iCB"/>
+                                <segue destination="XX2-nu-eiN" kind="presentation" identifier="toCreateEvent" id="vHa-gS-iCB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
