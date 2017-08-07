@@ -43,9 +43,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
-        print("Returned to login Screen!")
+        print("Returned to login screen!")
     }
-    
     
     // MARK: - Facebook Login
     @IBAction func facebookLoginButtonClicked(_ sender: Any) {
