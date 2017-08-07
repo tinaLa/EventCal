@@ -25,15 +25,17 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func cancelToPlayersViewController(segue: UIStoryboardSegue) { }
+    
     @IBAction func saveEventDetails(segue: UIStoryboardSegue) {
-        /*let sourceNavigationController = segue.source as! UINavigationController
-        let targetController = sourceNavigationController.topViewController as! CreateEventViewController
+        let targetController = segue.source as! CreateEventViewController
+        // let targetController = sourceNavigationController.topViewController as! CreateEventViewController
         
-        let eventName = targetController.eventTitleTextField.text
+        guard let eventName = targetController.eventTitleTextField.text else { return }
         let eventDate = targetController.datePicker.date
-        // let event = Event(snapshot: <#T##DataSnapshot#>)
+        self.formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let eventDateString = self.formatter.string(from: eventDate)
         
-        EventService.create(for: <#T##Event#>, eventName: <#T##String#>, eventDate: <#T##Date#>, success: <#T##(Bool) -> Void#>)*/
+        EventService.create(eventName: eventName, eventDate: eventDateString)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

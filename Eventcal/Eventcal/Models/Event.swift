@@ -14,20 +14,37 @@ class Event: NSObject {
     // MARK: - Event Variables
     var key: String?
     var name: String
-    var date: Date
+    var date: String
+    var host: User
     
-    init(eventName: String, eventDate: Date) {
+    init(eventName: String, eventDate: String) {
         self.name = eventName
         self.date = eventDate
+        self.host = User.current
     }
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let eventName = dict["eventName"] as? String,
-            let eventDate = dict["eventDate"] as? Date
+            let eventDate = dict["eventDate"] as? String,
+            let hostUID = dict["hostUID"] as? String,
+            let hostFirstName = dict["hostFirstName"] as? String,
+            let hostLastName = dict["hostLastName"] as? String
             else { return nil }
+        
         self.key = snapshot.key
         self.name = eventName
         self.date = eventDate
+        self.host = User(uid: hostUID, firstName: hostFirstName, lastName: hostLastName)
+    }
+    
+    var dictValue: [String : Any] {
+        let hostDict = ["hostUID" : host.uid,
+                        "hostFirstName" : host.firstName,
+                        "hostLastName" : host.lastName]
+        
+        return ["eventName" : name,
+                "eventDate" : date,
+                "eventHost" : hostDict]
     }
 }

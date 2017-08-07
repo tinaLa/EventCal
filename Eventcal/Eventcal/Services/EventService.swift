@@ -10,21 +10,14 @@ import Foundation
 import FirebaseDatabase
 
 struct EventService {
-    static func create(for event: Event, eventName: String, eventDate: Date, success: @escaping (Bool) -> Void) {
-        guard let key = event.key else {
-            return success(false)
-        }
+    static func create(eventName: String, eventDate: String) {
         
-        let eventAttrs: [String : Any] = ["name": eventName, "date": eventDate]
+        let event = Event(eventName: eventName, eventDate: eventDate)
         
-        let ref = Database.database().reference().child("events").child(key)
-        ref.setValue(eventAttrs) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-                return success(false)
-            } else {
-                return success(true)
-            }
-        }
+        let eventAttrs: [String : Any] = event.dictValue
+        
+        let ref = Database.database().reference().child("events").childByAutoId()
+        
+        ref.updateChildValues(eventAttrs)
     }
 }

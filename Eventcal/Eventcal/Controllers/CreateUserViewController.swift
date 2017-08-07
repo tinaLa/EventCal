@@ -29,7 +29,7 @@ class CreateUserViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-                print("Back to Login screen!")
+                print("Back to login screen!")
             }
         }
     }
