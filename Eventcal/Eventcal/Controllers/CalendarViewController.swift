@@ -28,10 +28,10 @@ class CalendarViewController: UIViewController {
     
     @IBAction func saveEventDetails(segue: UIStoryboardSegue) {
         let targetController = segue.source as! CreateEventViewController
-        // let targetController = sourceNavigationController.topViewController as! CreateEventViewController
         
         guard let eventName = targetController.eventTitleTextField.text else { return }
         let eventDate = targetController.datePicker.date
+        
         self.formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let eventDateString = self.formatter.string(from: eventDate)
         

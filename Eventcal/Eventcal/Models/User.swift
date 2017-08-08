@@ -15,16 +15,25 @@ class User : NSObject {
     let uid : String
     let firstName : String
     let lastName : String
+    var eventsHosting : [String]
+    var eventsAttending : [String]
+    
     var dictValue: [String : Any] {
         return ["firstName" : firstName,
-                "lastName" : lastName]
+                "lastName" : lastName,
+                "eventsHosting" : eventsHosting,
+                "eventsAttending" : eventsAttending]
     }
+    
+    
     
     // Standard User init()
     init(uid: String, firstName: String, lastName: String) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
+        self.eventsHosting = []
+        self.eventsAttending = []
         super.init()
     }
     
@@ -32,14 +41,18 @@ class User : NSObject {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let firstName = dict["firstName"] as? String,
-            let lastName = dict["lastName"] as? String
+            let lastName = dict["lastName"] as? String,
+            let eventsHosting = dict["eventsHosting"] as? [String],
+            let eventsAttending = dict["eventsAttending"] as? [String]
             else { return nil }
         self.uid = snapshot.key
         self.firstName = firstName
         self.lastName = lastName
+        self.eventsHosting = eventsHosting
+        self.eventsAttending = eventsAttending
     }
     
-    // UserDefaults
+    // UserDefaults   //bug may be here :)
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: "uid") as? String,
             let firstName = aDecoder.decodeObject(forKey: "firstName") as? String,
@@ -49,6 +62,9 @@ class User : NSObject {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
+        self.eventsHosting = []
+        self.eventsAttending = []
+        super.init()
     }
     
     
@@ -73,7 +89,7 @@ class User : NSObject {
         _current = user
     }
     
-    class func getFacebookFirstName() -> String? {
+    /*class func getFacebookFirstName() -> String? {
         var firstName: String?
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "first_name"]).start { (connection, result, error) in
             if error != nil {
@@ -100,7 +116,7 @@ class User : NSObject {
             lastName = String(describing: result)
         }
         return lastName
-    }
+    }*/
 
 }
 

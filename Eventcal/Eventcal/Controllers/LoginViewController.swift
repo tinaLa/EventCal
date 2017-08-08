@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
         print("Returned to login screen!")
     }
     
+    /*
     // MARK: - Facebook Login
     @IBAction func facebookLoginButtonClicked(_ sender: Any) {
         
@@ -98,6 +99,7 @@ class LoginViewController: UIViewController {
             
         }
     }
+    */
     
     // MARK: - Firebase Login
     @IBAction func loginClicked(_ sender: UIButton) {

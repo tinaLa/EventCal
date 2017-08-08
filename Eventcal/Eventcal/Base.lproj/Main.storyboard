@@ -176,8 +176,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ECO-62-VDc">
-                                <rect key="frame" x="0.0" y="110" width="375" height="400.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="RWt-R2-VGH" userLabel="Month/Year">
+                                <rect key="frame" x="9" y="72" width="360" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-u5-NYe">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="pMs-Ai-7ym"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7d6-82-LCb">
+                                        <rect key="frame" x="157" y="0.0" width="203" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="geN-nC-2g2"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ECO-62-VDc" userLabel="Calendar Stack View">
+                                <rect key="frame" x="0.0" y="110" width="375" height="275.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Y2R-aw-g7H" userLabel="Days of the Week">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -231,10 +254,10 @@
                                         </constraints>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ALG-4Z-n55" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="25.5" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="375" height="250"/>
                                         <color key="backgroundColor" red="0.3529411764705882" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="375" id="4Zc-JF-as6"/>
+                                            <constraint firstAttribute="height" constant="250" id="4Zc-JF-as6"/>
                                             <constraint firstAttribute="width" constant="375" id="MyW-Mx-Kg1"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QH6-wt-uLQ">
@@ -291,37 +314,24 @@
                                     </collectionView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="RWt-R2-VGH" userLabel="Month/Year">
-                                <rect key="frame" x="9" y="72" width="360" height="30"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-u5-NYe">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="pMs-Ai-7ym"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7d6-82-LCb">
-                                        <rect key="frame" x="157" y="0.0" width="203" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="360" id="geN-nC-2g2"/>
-                                </constraints>
-                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFn-Em-gz6">
+                                <rect key="frame" x="0.0" y="383" width="375" height="235"/>
+                                <connections>
+                                    <segue destination="nCX-oi-ul3" kind="embed" id="NwR-9b-qPc"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ECO-62-VDc" secondAttribute="trailing" id="19W-Sw-72h"/>
                             <constraint firstItem="RWt-R2-VGH" firstAttribute="top" secondItem="sjt-iw-LwI" secondAttribute="bottom" constant="8" id="DY8-w8-iiz"/>
+                            <constraint firstItem="RFn-Em-gz6" firstAttribute="top" secondItem="ECO-62-VDc" secondAttribute="bottom" constant="-2.5" id="S3y-bn-pwZ"/>
                             <constraint firstItem="ECO-62-VDc" firstAttribute="top" secondItem="RWt-R2-VGH" secondAttribute="bottom" constant="8" id="T4N-xK-kVN"/>
+                            <constraint firstAttribute="trailing" secondItem="RFn-Em-gz6" secondAttribute="trailing" id="a8M-qj-ZRY"/>
+                            <constraint firstItem="RFn-Em-gz6" firstAttribute="leading" secondItem="P48-Ua-PL1" secondAttribute="leading" id="nwV-ea-OCz"/>
                             <constraint firstItem="RWt-R2-VGH" firstAttribute="leading" secondItem="P48-Ua-PL1" secondAttribute="leadingMargin" constant="-7" id="rzN-cG-J34"/>
                             <constraint firstItem="ECO-62-VDc" firstAttribute="leading" secondItem="P48-Ua-PL1" secondAttribute="leading" id="u9a-aG-j3s"/>
+                            <constraint firstItem="Wlb-XL-V0e" firstAttribute="top" secondItem="RFn-Em-gz6" secondAttribute="bottom" id="wsy-Kg-84N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Calendar" id="UE3-DM-AiB">
@@ -421,6 +431,50 @@
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="532" y="906.29685157421295"/>
+        </scene>
+        <!--Events List Table View Controller-->
+        <scene sceneID="Jja-HP-CXf">
+            <objects>
+                <viewController id="nCX-oi-ul3" customClass="EventsListTableViewController" customModule="Eventcal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gee-Od-Rxt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventsListTableViewCell" rowHeight="55" id="Oim-VL-7Re" customClass="EventListTableViewCell" customModule="Eventcal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oim-VL-7Re" id="RhP-6X-6G4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zH-q2-YCa">
+                                            <rect key="frame" x="8" y="2" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjp-lQ-vR2">
+                                            <rect key="frame" x="8" y="28" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="eventDateLabel" destination="Pjp-lQ-vR2" id="8XL-za-7n3"/>
+                                    <outlet property="eventsTitleLabel" destination="3zH-q2-YCa" id="aHP-dy-7mz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h66-7B-5aT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-479.19999999999999" y="1110.4947526236883"/>
         </scene>
     </scenes>
     <resources>

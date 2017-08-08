@@ -10,8 +10,10 @@ import FirebaseDatabase
 
 struct UserService {
     static func create(_ firUser: FIRUser, firstName: String, lastName: String, completion: @escaping (User?) -> Void) {
-        let userAttrs = ["firstName": firstName,
-                         "lastName": lastName]
+        let userAttrs: [String : Any] = ["firstName": firstName,
+                                         "lastName": lastName,
+                                         "eventsHosting": [],
+                                         "eventsAttending": []]
         
         let ref = Database.database().reference().child("users").child(firUser.uid)
         ref.setValue(userAttrs) { (error, ref) in
