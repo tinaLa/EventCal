@@ -25,8 +25,6 @@ class User : NSObject {
                 "eventsAttending" : eventsAttending]
     }
     
-    
-    
     // Standard User init()
     init(uid: String, firstName: String, lastName: String) {
         self.uid = uid
@@ -41,29 +39,29 @@ class User : NSObject {
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let firstName = dict["firstName"] as? String,
-            let lastName = dict["lastName"] as? String,
-            let eventsHosting = dict["eventsHosting"] as? [String],
-            let eventsAttending = dict["eventsAttending"] as? [String]
+            let lastName = dict["lastName"] as? String
             else { return nil }
         self.uid = snapshot.key
         self.firstName = firstName
         self.lastName = lastName
-        self.eventsHosting = eventsHosting
-        self.eventsAttending = eventsAttending
+        self.eventsHosting = dict["eventsHosting"] as? [String] ?? []
+        self.eventsAttending = dict["eventsAttending"] as? [String] ?? []
     }
     
-    // UserDefaults   //bug may be here :)
+    // UserDefaults   // bug may be here :)
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: "uid") as? String,
             let firstName = aDecoder.decodeObject(forKey: "firstName") as? String,
-            let lastName = aDecoder.decodeObject(forKey: "lastName") as? String
+            let lastName = aDecoder.decodeObject(forKey: "lastName") as? String,
+            let eventsHosting = aDecoder.decodeObject(forKey: "eventsHosting") as? [String],
+            let eventsAttending = aDecoder.decodeObject(forKey: "eventsAttending") as? [String]
             else { return nil }
         
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
-        self.eventsHosting = []
-        self.eventsAttending = []
+        self.eventsHosting = eventsHosting
+        self.eventsAttending = eventsAttending
         super.init()
     }
     
@@ -125,5 +123,7 @@ extension User: NSCoding {
         aCoder.encode(uid, forKey: "uid")
         aCoder.encode(firstName, forKey: "firstName")
         aCoder.encode(lastName, forKey: "lastName")
+        aCoder.encode(eventsHosting, forKey: "eventsHosting")
+        aCoder.encode(eventsAttending, forKey: "eventsAttending")
     }
 }

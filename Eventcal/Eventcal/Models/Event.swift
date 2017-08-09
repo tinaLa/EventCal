@@ -27,9 +27,10 @@ class Event: NSObject {
         guard let dict = snapshot.value as? [String : Any],
             let eventName = dict["eventName"] as? String,
             let eventDate = dict["eventDate"] as? String,
-            let hostUID = dict["hostUID"] as? String,
-            let hostFirstName = dict["hostFirstName"] as? String,
-            let hostLastName = dict["hostLastName"] as? String
+            let hostDict = dict["eventHost"] as? [String: String],
+            let hostUID = hostDict["hostUID"],
+            let hostFirstName = hostDict["hostFirstName"],
+            let hostLastName = hostDict["hostLastName"]
             else { return nil }
         
         self.key = snapshot.key

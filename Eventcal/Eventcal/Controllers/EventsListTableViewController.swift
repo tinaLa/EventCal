@@ -10,6 +10,8 @@ import UIKit
 
 class EventsListTableViewController: UITableViewController {
 
+    var events: [String] = User.current.eventsHosting + User.current.eventsAttending
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,13 +19,25 @@ class EventsListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return events.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsListTableViewCell", for: indexPath) as! EventListTableViewCell
-        cell.eventsTitleLabel.text = "My birthday"
-        cell.eventDateLabel.text = "8/28"
+        
+        let index = indexPath.row
+        let eventID = events[index]
+        
+        EventService.show(eventID: eventID) { (event) in
+            if let event = event {
+                cell.eventsTitleLabel.text = event.name
+                cell.eventDateLabel.text = event.date
+            } else {
+                print("Error: event not found")
+                return
+            }
+        }
+        
         return cell
     }
 

@@ -112,8 +112,8 @@
 				9643EA971F2A4268001C8D2C /* MainViewController.swift */,
 				9614D90E1F38AC0200509A76 /* InitialScreenViewController.swift */,
 				96811ED81F31016F0057909C /* CalendarViewController.swift */,
-				9656B16C1F33B251003657E3 /* CreateEventViewController.swift */,
 				9614D9101F39F3B600509A76 /* EventsListTableViewController.swift */,
+				9656B16C1F33B251003657E3 /* CreateEventViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
