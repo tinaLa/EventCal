@@ -30,6 +30,8 @@
 		9656B16D1F33B251003657E3 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9656B16C1F33B251003657E3 /* CreateEventViewController.swift */; };
 		96811ED91F31016F0057909C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96811ED81F31016F0057909C /* CalendarViewController.swift */; };
 		96811EDB1F3373610057909C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96811EDA1F3373610057909C /* Event.swift */; };
+		96C4BFC71F3DF90B00C3BF74 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */; };
+		96C4BFCA1F3E1ED400C3BF74 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4BFC91F3E1ED400C3BF74 /* SideBarTableViewController.swift */; };
 		96E87EDA1F2A251700D8009B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E87ED91F2A251700D8009B /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,10 @@
 		9656B16C1F33B251003657E3 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventViewController.swift; path = Controllers/CreateEventViewController.swift; sourceTree = "<group>"; };
 		96811ED81F31016F0057909C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = Controllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		96811EDA1F3373610057909C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
+		96C4BFC41F3DF90A00C3BF74 /* Eventcal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Eventcal-Bridging-Header.h"; sourceTree = "<group>"; };
+		96C4BFC51F3DF90B00C3BF74 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		96C4BFC91F3E1ED400C3BF74 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = Controllers/SideBarTableViewController.swift; sourceTree = "<group>"; };
 		96E87ED61F2A251600D8009B /* Eventcal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventcal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E87ED91F2A251700D8009B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E87EE51F2A251700D8009B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 				9643EA961F2A4268001C8D2C /* LoginViewController.swift */,
 				9643EA951F2A4268001C8D2C /* ForgotPasswordViewController.swift */,
 				9643EA971F2A4268001C8D2C /* MainViewController.swift */,
+				96C4BFC91F3E1ED400C3BF74 /* SideBarTableViewController.swift */,
 				9614D90E1F38AC0200509A76 /* InitialScreenViewController.swift */,
 				96811ED81F31016F0057909C /* CalendarViewController.swift */,
 				9614D9101F39F3B600509A76 /* EventsListTableViewController.swift */,
@@ -178,6 +185,9 @@
 			children = (
 				96E87ED91F2A251700D8009B /* AppDelegate.swift */,
 				9643EAA41F2A4355001C8D2C /* Assets.xcassets */,
+				96C4BFC41F3DF90A00C3BF74 /* Eventcal-Bridging-Header.h */,
+				96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */,
+				96C4BFC51F3DF90B00C3BF74 /* SWRevealViewController.h */,
 				9643EA8E1F2A3CCD001C8D2C /* Base.lproj */,
 				9643EAA71F2A43C1001C8D2C /* Extensions */,
 				9643EAA91F2A4401001C8D2C /* Models */,
@@ -234,6 +244,7 @@
 					96E87ED51F2A251600D8009B = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = AJ246L6C5L;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -325,8 +336,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				96811ED91F31016F0057909C /* CalendarViewController.swift in Sources */,
+				96C4BFC71F3DF90B00C3BF74 /* SWRevealViewController.m in Sources */,
 				9643EAA01F2A4268001C8D2C /* MainViewController.swift in Sources */,
 				9643EA9F1F2A4268001C8D2C /* LoginViewController.swift in Sources */,
+				96C4BFCA1F3E1ED400C3BF74 /* SideBarTableViewController.swift in Sources */,
 				9614D90D1F34E42100509A76 /* EventService.swift in Sources */,
 				9656B16D1F33B251003657E3 /* CreateEventViewController.swift in Sources */,
 				9614D9111F39F3B600509A76 /* EventsListTableViewController.swift in Sources */,
@@ -446,11 +459,14 @@
 			baseConfigurationReference = 2822D64C98AF492AD8C03650 /* Pods-Eventcal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AJ246L6C5L;
 				INFOPLIST_FILE = Eventcal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinala.Eventcal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Eventcal/Eventcal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -460,11 +476,13 @@
 			baseConfigurationReference = CEF51D299D411DF92D61A8C5 /* Pods-Eventcal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AJ246L6C5L;
 				INFOPLIST_FILE = Eventcal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinala.Eventcal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Eventcal/Eventcal-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

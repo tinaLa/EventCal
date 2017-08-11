@@ -15,14 +15,10 @@ class User : NSObject {
     let uid : String
     let firstName : String
     let lastName : String
-    var eventsHosting : [String]
-    var eventsAttending : [String]
     
     var dictValue: [String : Any] {
         return ["firstName" : firstName,
-                "lastName" : lastName,
-                "eventsHosting" : eventsHosting,
-                "eventsAttending" : eventsAttending]
+                "lastName" : lastName]
     }
     
     // Standard User init()
@@ -30,8 +26,6 @@ class User : NSObject {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
-        self.eventsHosting = []
-        self.eventsAttending = []
         super.init()
     }
     
@@ -44,24 +38,18 @@ class User : NSObject {
         self.uid = snapshot.key
         self.firstName = firstName
         self.lastName = lastName
-        self.eventsHosting = dict["eventsHosting"] as? [String] ?? []
-        self.eventsAttending = dict["eventsAttending"] as? [String] ?? []
     }
     
     // UserDefaults   // bug may be here :)
     required init?(coder aDecoder: NSCoder) {
         guard let uid = aDecoder.decodeObject(forKey: "uid") as? String,
             let firstName = aDecoder.decodeObject(forKey: "firstName") as? String,
-            let lastName = aDecoder.decodeObject(forKey: "lastName") as? String,
-            let eventsHosting = aDecoder.decodeObject(forKey: "eventsHosting") as? [String],
-            let eventsAttending = aDecoder.decodeObject(forKey: "eventsAttending") as? [String]
+            let lastName = aDecoder.decodeObject(forKey: "lastName") as? String
             else { return nil }
         
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
-        self.eventsHosting = eventsHosting
-        self.eventsAttending = eventsAttending
         super.init()
     }
     
@@ -123,7 +111,5 @@ extension User: NSCoding {
         aCoder.encode(uid, forKey: "uid")
         aCoder.encode(firstName, forKey: "firstName")
         aCoder.encode(lastName, forKey: "lastName")
-        aCoder.encode(eventsHosting, forKey: "eventsHosting")
-        aCoder.encode(eventsAttending, forKey: "eventsAttending")
     }
 }

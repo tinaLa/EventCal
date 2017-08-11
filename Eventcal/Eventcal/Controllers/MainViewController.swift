@@ -14,13 +14,26 @@ class MainViewController: UIViewController {
     var authHandle: AuthStateDidChangeListenerHandle?
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
 
+    func sideMenu() {
+        if revealViewController() != nil {
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rearViewRevealWidth = 275
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
         
         authHandle = AuthService.authListener(viewController: self)
+        
+        sideMenu()
     }
     
     deinit {

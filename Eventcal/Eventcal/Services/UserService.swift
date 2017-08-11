@@ -40,6 +40,19 @@ struct UserService {
         })
     }
     
+    static func fetchEvents(forUID uid: String, completion: @escaping ([Event]) -> Void) {
+        let ref = Database.database().reference().child("eventsHosting").child(uid)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            
+            let events = snapshot.reversed().flatMap(Event.init)
+            completion(events)
+        })
+    }
+    
     static func deleteUser(forUID uid: String, success: @escaping (Bool) -> Void) {
         let ref = Database.database().reference().child("users")
         let object = [uid : NSNull()]

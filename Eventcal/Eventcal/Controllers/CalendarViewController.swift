@@ -17,14 +17,28 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarYear: UILabel!
     
     let formatter = DateFormatter()
+    
+    // MARK: - Side Menu Stuff
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    func sideMenu() {
+        if revealViewController() != nil {
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rearViewRevealWidth = 275
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    
 
     // MARK: - viewDidLoad and segues
     override func viewDidLoad() {
         super.viewDidLoad()
+        sideMenu()
         setUpCalendar()
+        embeddedSegue()
     }
-    
-    @IBAction func cancelToPlayersViewController(segue: UIStoryboardSegue) { }
     
     @IBAction func saveEventDetails(segue: UIStoryboardSegue) {
         let targetController = segue.source as! CreateEventViewController
@@ -37,7 +51,16 @@ class CalendarViewController: UIViewController {
         
         EventService.create(eventName: eventName, eventDate: eventDateString)
     }
-
+    
+    func embeddedSegue() {
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toEventList" {
+                let destinationViewController = segue.destination as! EventsListTableViewController
+                destinationViewController.selectedDate = calendarView.selectedDates[0]
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCreateEvent" {
             let destinationNavigationController = segue.destination as! UINavigationController
