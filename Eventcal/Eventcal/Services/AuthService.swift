@@ -65,15 +65,15 @@ struct AuthService {
     */
     
     static func presentDelete(viewController : UIViewController, user : FIRUser){
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Are you sure you want to delete your account?", message: nil, preferredStyle: .actionSheet)
         
-        let signOutAction = UIAlertAction(title: "Delete Account", style: .destructive) { _ in
+        let signOutAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
             deleteAccount(user: user)
         }
         
         alertController.addAction(signOutAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         viewController.present(alertController, animated: true)
@@ -134,7 +134,7 @@ struct AuthService {
     static func presentLogOut(viewController : UIViewController){
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let signOutAction = UIAlertAction(title: "Log Out", style: .destructive) { _ in
+        let signOutAction = UIAlertAction(title: "Log out?", style: .destructive) { _ in
             logUserOut()
         }
         

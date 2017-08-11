@@ -7,19 +7,21 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SideBarTableViewController: UITableViewController {
     
     var menuItems = [String]()
+    var authHandle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.menuItems = ["title", "profile", "events", "friends", "settings", "logOut"]
+        authHandle = AuthService.authListener(viewController: self)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    deinit {
+        AuthService.removeAuthListener(authHandle: authHandle)
     }
 
     // MARK: - Table view data source
@@ -41,7 +43,12 @@ class SideBarTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 5 {
+            AuthService.presentLogOut(viewController: self)
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

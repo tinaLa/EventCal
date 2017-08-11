@@ -39,10 +39,6 @@ class MainViewController: UIViewController {
     deinit {
         AuthService.removeAuthListener(authHandle: authHandle)
     }
-
-    @IBAction func logOutClicked(_ sender: UIButton) {
-        AuthService.presentLogOut(viewController: self)
-    }
     
     @IBAction func deleteAccountClicked(_ sender: UIButton) {
         guard let user = Auth.auth().currentUser else {
