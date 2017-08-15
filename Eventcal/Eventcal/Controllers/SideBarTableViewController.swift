@@ -16,6 +16,7 @@ class SideBarTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.menuItems = ["title", "profile", "events", "friends", "settings", "logOut"]
         authHandle = AuthService.authListener(viewController: self)
     }

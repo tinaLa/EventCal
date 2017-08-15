@@ -22,7 +22,7 @@
 		9643EA9D1F2A4268001C8D2C /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA941F2A4268001C8D2C /* CreateUserViewController.swift */; };
 		9643EA9E1F2A4268001C8D2C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA951F2A4268001C8D2C /* ForgotPasswordViewController.swift */; };
 		9643EA9F1F2A4268001C8D2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA961F2A4268001C8D2C /* LoginViewController.swift */; };
-		9643EAA01F2A4268001C8D2C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA971F2A4268001C8D2C /* MainViewController.swift */; };
+		9643EAA01F2A4268001C8D2C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA971F2A4268001C8D2C /* SettingsViewController.swift */; };
 		9643EAA11F2A4268001C8D2C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA981F2A4268001C8D2C /* AuthService.swift */; };
 		9643EAA21F2A4268001C8D2C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA991F2A4268001C8D2C /* UserService.swift */; };
 		9643EAA31F2A4268001C8D2C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9643EA9A1F2A4268001C8D2C /* User.swift */; };
@@ -32,7 +32,13 @@
 		96811EDB1F3373610057909C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96811EDA1F3373610057909C /* Event.swift */; };
 		96C4BFC71F3DF90B00C3BF74 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */; };
 		96C4BFCA1F3E1ED400C3BF74 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4BFC91F3E1ED400C3BF74 /* SideBarTableViewController.swift */; };
+		96C4BFCF1F3E3FAE00C3BF74 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C4BFCD1F3E3FAE00C3BF74 /* Events.storyboard */; };
 		96E87EDA1F2A251700D8009B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E87ED91F2A251700D8009B /* AppDelegate.swift */; };
+		96EC84471F41E646006B5E00 /* RecurringEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC84461F41E646006B5E00 /* RecurringEventsViewController.swift */; };
+		96EC84491F41EB0E006B5E00 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC84481F41EB0E006B5E00 /* ProfileViewController.swift */; };
+		96EC844C1F41F07A006B5E00 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC844B1F41F07A006B5E00 /* PhotoHelper.swift */; };
+		96EC844E1F41F4D9006B5E00 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC844D1F41F4D9006B5E00 /* StorageService.swift */; };
+		96EC84511F420F8B006B5E00 /* PFPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC84501F420F8B006B5E00 /* PFPService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +58,7 @@
 		9643EA941F2A4268001C8D2C /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUserViewController.swift; path = Controllers/CreateUserViewController.swift; sourceTree = "<group>"; };
 		9643EA951F2A4268001C8D2C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Controllers/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		9643EA961F2A4268001C8D2C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
-		9643EA971F2A4268001C8D2C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
+		9643EA971F2A4268001C8D2C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		9643EA981F2A4268001C8D2C /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = Services/AuthService.swift; sourceTree = "<group>"; };
 		9643EA991F2A4268001C8D2C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
 		9643EA9A1F2A4268001C8D2C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
@@ -64,9 +70,15 @@
 		96C4BFC51F3DF90B00C3BF74 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		96C4BFC91F3E1ED400C3BF74 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBarTableViewController.swift; path = Controllers/SideBarTableViewController.swift; sourceTree = "<group>"; };
+		96C4BFCE1F3E3FAE00C3BF74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Events.storyboard; sourceTree = "<group>"; };
 		96E87ED61F2A251600D8009B /* Eventcal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventcal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E87ED91F2A251700D8009B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E87EE51F2A251700D8009B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96EC84461F41E646006B5E00 /* RecurringEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecurringEventsViewController.swift; path = Controllers/RecurringEventsViewController.swift; sourceTree = "<group>"; };
+		96EC84481F41EB0E006B5E00 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		96EC844B1F41F07A006B5E00 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = Helpers/PhotoHelper.swift; sourceTree = "<group>"; };
+		96EC844D1F41F4D9006B5E00 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
+		96EC84501F420F8B006B5E00 /* PFPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFPService.swift; sourceTree = "<group>"; };
 		CEF51D299D411DF92D61A8C5 /* Pods-Eventcal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventcal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eventcal/Pods-Eventcal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +117,7 @@
 				9643EA8B1F2A3CCD001C8D2C /* LaunchScreen.storyboard */,
 				9643EA8C1F2A3CCD001C8D2C /* Login.storyboard */,
 				9643EA8D1F2A3CCD001C8D2C /* Main.storyboard */,
+				96C4BFCD1F3E3FAE00C3BF74 /* Events.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -115,10 +128,12 @@
 				9643EA941F2A4268001C8D2C /* CreateUserViewController.swift */,
 				9643EA961F2A4268001C8D2C /* LoginViewController.swift */,
 				9643EA951F2A4268001C8D2C /* ForgotPasswordViewController.swift */,
-				9643EA971F2A4268001C8D2C /* MainViewController.swift */,
+				9643EA971F2A4268001C8D2C /* SettingsViewController.swift */,
 				96C4BFC91F3E1ED400C3BF74 /* SideBarTableViewController.swift */,
 				9614D90E1F38AC0200509A76 /* InitialScreenViewController.swift */,
 				96811ED81F31016F0057909C /* CalendarViewController.swift */,
+				96EC84461F41E646006B5E00 /* RecurringEventsViewController.swift */,
+				96EC84481F41EB0E006B5E00 /* ProfileViewController.swift */,
 				9614D9101F39F3B600509A76 /* EventsListTableViewController.swift */,
 				9656B16C1F33B251003657E3 /* CreateEventViewController.swift */,
 			);
@@ -140,6 +155,8 @@
 				9643EA981F2A4268001C8D2C /* AuthService.swift */,
 				9643EA991F2A4268001C8D2C /* UserService.swift */,
 				9614D90C1F34E42100509A76 /* EventService.swift */,
+				96EC844D1F41F4D9006B5E00 /* StorageService.swift */,
+				96EC84501F420F8B006B5E00 /* PFPService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -188,6 +205,7 @@
 				96C4BFC41F3DF90A00C3BF74 /* Eventcal-Bridging-Header.h */,
 				96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */,
 				96C4BFC51F3DF90B00C3BF74 /* SWRevealViewController.h */,
+				96EC844A1F41F027006B5E00 /* Helpers */,
 				9643EA8E1F2A3CCD001C8D2C /* Base.lproj */,
 				9643EAA71F2A43C1001C8D2C /* Extensions */,
 				9643EAA91F2A4401001C8D2C /* Models */,
@@ -197,6 +215,14 @@
 				9643EAA61F2A4361001C8D2C /* View Controllers */,
 			);
 			path = Eventcal;
+			sourceTree = "<group>";
+		};
+		96EC844A1F41F027006B5E00 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				96EC844B1F41F07A006B5E00 /* PhotoHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		AFB19007DB67002D9F196CAE /* Pods */ = {
@@ -277,6 +303,7 @@
 				9643EA911F2A3CCD001C8D2C /* Main.storyboard in Resources */,
 				9643EA8F1F2A3CCD001C8D2C /* LaunchScreen.storyboard in Resources */,
 				9643EAA51F2A4355001C8D2C /* Assets.xcassets in Resources */,
+				96C4BFCF1F3E3FAE00C3BF74 /* Events.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,14 +364,19 @@
 			files = (
 				96811ED91F31016F0057909C /* CalendarViewController.swift in Sources */,
 				96C4BFC71F3DF90B00C3BF74 /* SWRevealViewController.m in Sources */,
-				9643EAA01F2A4268001C8D2C /* MainViewController.swift in Sources */,
+				96EC84471F41E646006B5E00 /* RecurringEventsViewController.swift in Sources */,
+				9643EAA01F2A4268001C8D2C /* SettingsViewController.swift in Sources */,
 				9643EA9F1F2A4268001C8D2C /* LoginViewController.swift in Sources */,
 				96C4BFCA1F3E1ED400C3BF74 /* SideBarTableViewController.swift in Sources */,
+				96EC84491F41EB0E006B5E00 /* ProfileViewController.swift in Sources */,
 				9614D90D1F34E42100509A76 /* EventService.swift in Sources */,
 				9656B16D1F33B251003657E3 /* CreateEventViewController.swift in Sources */,
 				9614D9111F39F3B600509A76 /* EventsListTableViewController.swift in Sources */,
 				961A321C1F30F1060082A789 /* CustomCell.swift in Sources */,
 				9643EAA21F2A4268001C8D2C /* UserService.swift in Sources */,
+				96EC844C1F41F07A006B5E00 /* PhotoHelper.swift in Sources */,
+				96EC844E1F41F4D9006B5E00 /* StorageService.swift in Sources */,
+				96EC84511F420F8B006B5E00 /* PFPService.swift in Sources */,
 				9643EA9C1F2A4268001C8D2C /* ViewController+Utility.swift in Sources */,
 				9643EA9E1F2A4268001C8D2C /* ForgotPasswordViewController.swift in Sources */,
 				96E87EDA1F2A251700D8009B /* AppDelegate.swift in Sources */,
@@ -359,6 +391,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		96C4BFCD1F3E3FAE00C3BF74 /* Events.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96C4BFCE1F3E3FAE00C3BF74 /* Base */,
+			);
+			name = Events.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		96E87EE61F2A251700D8009B /* Debug */ = {

@@ -40,6 +40,8 @@ class CalendarViewController: UIViewController {
         embeddedSegue()
     }
     
+    @IBAction func cancelToCalendar(segue: UIStoryboardSegue) { }
+    
     @IBAction func saveEventDetails(segue: UIStoryboardSegue) {
         let targetController = segue.source as! CreateEventViewController
         
