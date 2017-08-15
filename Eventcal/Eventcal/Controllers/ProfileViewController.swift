@@ -17,7 +17,6 @@ class ProfileViewController: UIViewController {
     
     let photoHelper = PhotoHelper()
 
-    
     // MARK: - Side Menu Stuff
     func sideMenu() {
         if revealViewController() != nil {
@@ -33,12 +32,10 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         sideMenu()
         nameLabel.text = "\(User.current.firstName) \(User.current.lastName)"
-        
-        photoHelper.completionHandler = { image in
-            PFPService.addProfilePicture(for: image)
-            
-        }
-        
+        self.retrievePicture()
+    }
+    
+    func retrievePicture() {
         let uid = User.current.uid
         PFPService.retreiveURL(uid: uid) { (urlString) in
             guard let urlString = urlString else {
@@ -55,10 +52,15 @@ class ProfileViewController: UIViewController {
                 }
             }).resume()
         }
-        
     }
     
     @IBAction func editProfileTapped(_ sender: Any) {
         photoHelper.presentActionSheet(from: self)
+        
+        photoHelper.completionHandler = { image in
+            PFPService.addProfilePicture(for: image)
+            self.profilePictureView.image = image
+        }
+
     }
 }

@@ -14,38 +14,37 @@ class Event: NSObject {
     // MARK: - Event Variables
     var key: String?
     var name: String
-    var date: String
-    var host: User
+    var startDate: String
+    var attendees: [String]
     
-    init(eventName: String, eventDate: String) {
+    var dictValueFull: [String : Any] {
+        return ["eventName" : name,
+                "eventStartDate" : startDate,
+                "eventAttendees" : attendees]
+    }
+    
+    var dictValueLite: [String : Any] {
+        return ["eventName" : name,
+                "eventStartDate" : startDate]
+    }
+    
+    init(eventName: String, eventStartDate: String) {
         self.name = eventName
-        self.date = eventDate
-        self.host = User.current
+        self.startDate = eventStartDate
+        self.attendees = [String]()
+        self.attendees.append(User.current.uid)
     }
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
             let eventName = dict["eventName"] as? String,
-            let eventDate = dict["eventDate"] as? String,
-            let hostDict = dict["eventHost"] as? [String: String],
-            let hostUID = hostDict["hostUID"],
-            let hostFirstName = hostDict["hostFirstName"],
-            let hostLastName = hostDict["hostLastName"]
+            let eventStartDate = dict["eventStartDate"] as? String,
+            let eventAttendees = dict["eventAttendees"] as? [String]
             else { return nil }
         
         self.key = snapshot.key
         self.name = eventName
-        self.date = eventDate
-        self.host = User(uid: hostUID, firstName: hostFirstName, lastName: hostLastName)
-    }
-    
-    var dictValue: [String : Any] {
-        let hostDict = ["hostUID" : host.uid,
-                        "hostFirstName" : host.firstName,
-                        "hostLastName" : host.lastName]
-        
-        return ["eventName" : name,
-                "eventDate" : date,
-                "eventHost" : hostDict]
+        self.startDate = eventStartDate
+        self.attendees = eventAttendees
     }
 }

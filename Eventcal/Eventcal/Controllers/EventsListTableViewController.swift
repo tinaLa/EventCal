@@ -40,7 +40,7 @@ class EventsListTableViewController: UITableViewController {
         let event = eventsArray[index]
         self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         cell.eventsTitleLabel.text = event.name
-        cell.eventDateLabel.text = event.date
+        cell.eventDateLabel.text = event.startDate
         
 //        EventService.show(eventID: eventID) { (event) in
 //            if let event = event {
