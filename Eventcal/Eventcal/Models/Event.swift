@@ -17,15 +17,10 @@ class Event: NSObject {
     var startDate: String
     var attendees: [String]
     
-    var dictValueFull: [String : Any] {
+    var dictValue: [String : Any] {
         return ["eventName" : name,
                 "eventStartDate" : startDate,
                 "eventAttendees" : attendees]
-    }
-    
-    var dictValueLite: [String : Any] {
-        return ["eventName" : name,
-                "eventStartDate" : startDate]
     }
     
     init(eventName: String, eventStartDate: String) {

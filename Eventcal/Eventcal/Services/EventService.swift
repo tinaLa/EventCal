@@ -14,18 +14,17 @@ struct EventService {
     static func create(eventName: String, eventDate: String) {
         
         let event = Event(eventName: eventName, eventStartDate: eventDate)
-        let allEventAttrs: [String : Any] = event.dictValueFull
-        let liteEventAttrs: [String : Any] = event.dictValueLite
+        let eventAttrs: [String : Any] = event.dictValue
         
         // write to eventInfo branch in database
         let eventInfoRef = Database.database().reference().child("eventInfo").childByAutoId()
         let eventID = eventInfoRef.key
-        eventInfoRef.updateChildValues(allEventAttrs)
+        eventInfoRef.updateChildValues(eventAttrs)
         
         // write to eventsHosting branch in database
         let user = User.current
         let eventsHostingRef = Database.database().reference().child("eventsHosting").child(user.uid).child(eventID)
-        eventsHostingRef.updateChildValues(liteEventAttrs)
+        eventsHostingRef.updateChildValues(eventAttrs)
         
     }
     

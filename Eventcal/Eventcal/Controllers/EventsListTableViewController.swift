@@ -12,19 +12,23 @@ class EventsListTableViewController: UITableViewController {
 
     // MARK: - Global variables and viewDidLoad
     let dateFormatter = DateFormatter()
-    var selectedDate: Date = Date()
+    var selectedDate = Date()
     
-    var eventsArray = [Event]()
+    var eventsArray = [Event]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserService.fetchEvents(forUID: User.current.uid) { (events) in
+            let todaysEvents = self.filterEventsForToday(events: events)
+            self.eventsArray = todaysEvents
+        }
         
         /*let eventObjects = eventIDsToEvents(eventIDs: events)
         eventsForToday = filterEventsForToday(events: eventObjects)*/
-        
-        UserService.fetchEvents(forUID: User.current.uid) { (events) in
-            self.eventsArray = events
-        }
     }
 
     // MARK: - Table view data source
@@ -42,52 +46,25 @@ class EventsListTableViewController: UITableViewController {
         cell.eventsTitleLabel.text = event.name
         cell.eventDateLabel.text = event.startDate
         
-//        EventService.show(eventID: eventID) { (event) in
-//            if let event = event {
-//                cell.eventsTitleLabel.text = event.name
-//                cell.eventDateLabel.text = event.date
-//                //cell.eventDateLabel.text = self.dateFormatter.string(from: self.selectedDate)
-//            } else {
-//                print("Error: event not found")
-//                return
-//            }
-//        }
-        
         return cell
     }
     
     // MARK: - Helper functions
-    /*func eventIDsToEvents(eventIDs: [String]) -> [String : Event] {
-        
-        var eventKeyAndObjectDict = [String : Event]()
-        
-        for eventID in eventIDs {
-            EventService.show(eventID: eventID) { (event) in
-                if let event = event {
-                    eventKeyAndObjectDict[event.key] = event
-                } else {
-                    print("Error: was unable to retreive event")
-                }
-            }
-        }
-        
-        return eventKeyAndObjectDict
-    }
     
-    func filterEventsForToday(events: [String : Event]) -> [String] {
-        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        var eventsForToday = [String]()
+    func filterEventsForToday(events: [Event]) -> [Event] {
+        self.dateFormatter.dateFormat = "yyyy-MM-dd"
+        var eventsForToday = [Event]()
         
-        for (eventKey:event) in events {
-            let eventDateString = event.date
-            let selectedDateString = self.dateFormatter.string(from: selectedDate)
-            
-            if eventDateString == selectedDateString {
-                eventsForToday.append(event.key)
+        for event in events {
+            let eventDate = event.startDate
+            let todaysDate = self.dateFormatter.string(from: selectedDate)
+            if eventDate.range(of: todaysDate) != nil {
+                eventsForToday.append(event)
             }
         }
+        
         return eventsForToday
-    }*/
+    }
     
     
     /*

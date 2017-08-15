@@ -42,13 +42,20 @@ struct UserService {
     
     static func fetchEvents(forUID uid: String, completion: @escaping ([Event]) -> Void) {
         let ref = Database.database().reference().child("eventsHosting").child(uid)
+        var events = [Event]()
         
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+        ref.observeSingleEvent(of: .value, with: { (snapshots) in
+            guard let snapshots = snapshots.children.allObjects as? [DataSnapshot] else {
                 return completion([])
             }
             
-            let events = snapshot.reversed().flatMap(Event.init)
+            for snapshot in snapshots {
+                guard let event = Event(snapshot: snapshot) else {
+                    print("something went wrong with fetching events")
+                    return
+                }
+                events.append(event)
+            }
             completion(events)
         })
     }
