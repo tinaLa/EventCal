@@ -48,10 +48,11 @@ class CalendarViewController: UIViewController {
         guard let eventName = targetController.eventTitleTextField.text else { return }
         let eventDate = targetController.datePicker.date
         
-        self.dateFormatter.dateFormat = "MMMM dd, yyyy - hh:mm a"
+        self.dateFormatter.dateFormat = "EEEE MMMM dd, yyyy - hh:mm a"
         let eventDateString = self.dateFormatter.string(from: eventDate)
         
         EventService.create(eventName: eventName, eventDate: eventDateString)
+        setUpEventTableView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -130,19 +131,54 @@ class CalendarViewController: UIViewController {
     }
     
     func sortEventsForMonth(events: [Event], from visibleDates: DateSegmentInfo) -> [Event] {
-        self.dateFormatter.dateFormat = "MMMM"
         var eventsForToday = [Event]()
         
         for event in events {
             let eventDate = event.startDate
             let todaysDateObject = visibleDates.monthDates.first!.date
+            
+            self.dateFormatter.dateFormat = "MMMM"
             let todaysDate = self.dateFormatter.string(from: todaysDateObject)
+            
             if eventDate.range(of: todaysDate) != nil {
-                eventsForToday.append(event)
+                if eventsForToday.count == 0 {
+                    eventsForToday.append(event)
+                } else {
+                    eventsForToday = insertInChronologicalOrder(newEvent: event, events: eventsForToday)
+                }
             }
         }
         
         return eventsForToday
+    }
+    
+    func insertInChronologicalOrder(newEvent: Event, events: [Event]) -> [Event] {
+        self.dateFormatter.dateFormat = "EEEE MMMM dd, yyyy - hh:mm a"
+        var newEventArray = events
+        var eventAdded = false
+        let newEventDate = self.dateFormatter.date(from: newEvent.startDate)
+        
+        for i in 0..<events.count {
+            let currentEvent = events[i]
+            
+            guard let currentEventDate = self.dateFormatter.date(from: currentEvent.startDate) else {
+                print("something went wrong with date conversion")
+                return []
+            }
+            
+            if newEventDate?.compare(currentEventDate) == ComparisonResult.orderedAscending {
+                newEventArray.insert(newEvent, at: i)
+                eventAdded = true
+                break
+            }
+            
+        }
+        
+        if eventAdded == false {
+            newEventArray.append(newEvent)
+        }
+        
+        return newEventArray
     }
 }
 
