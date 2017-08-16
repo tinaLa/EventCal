@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import GooglePlaces
 
 typealias FIRUser = FirebaseAuth.User
 
@@ -20,9 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         configureInitialRootViewController(for: window)
-        
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+        GMSPlacesClient.provideAPIKey("AIzaSyBtZZxAlCOqIjULUe-f_Ee17h6PgKoJdKw")
         return true
     }
 

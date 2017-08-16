@@ -10,6 +10,7 @@ target 'Eventcal' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'GooglePlaces'
   
   # Pods for Facebook login
   pod 'FBSDKCoreKit'
