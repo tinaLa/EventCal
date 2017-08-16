@@ -11,33 +11,33 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
-    // MARK: - Outlets and Date Formatter
+    // MARK: - Outlets and global variables
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var calendarMonth: UILabel!
-    @IBOutlet weak var calendarYear: UILabel!
-    
-    let formatter = DateFormatter()
-    
-    // MARK: - Side Menu Stuff
+    @IBOutlet weak var eventTableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    func sideMenu() {
+    let dateFormatter = DateFormatter()
+    
+    var eventsArray = [Event]() {
+        didSet { eventTableView.reloadData() }
+    }
+    
+    // MARK: - Present side menu
+    func presentSideMenu() {
         if revealViewController() != nil {
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             revealViewController().rearViewRevealWidth = 275
-            
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
-
     // MARK: - viewDidLoad and segues
     override func viewDidLoad() {
         super.viewDidLoad()
-        sideMenu()
+        presentSideMenu()
         setUpCalendar()
-        embeddedSegue()
     }
     
     @IBAction func cancelToCalendar(segue: UIStoryboardSegue) { }
@@ -48,19 +48,10 @@ class CalendarViewController: UIViewController {
         guard let eventName = targetController.eventTitleTextField.text else { return }
         let eventDate = targetController.datePicker.date
         
-        self.formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        let eventDateString = self.formatter.string(from: eventDate)
+        self.dateFormatter.dateFormat = "MMMM dd, yyyy - hh:mm a"
+        let eventDateString = self.dateFormatter.string(from: eventDate)
         
         EventService.create(eventName: eventName, eventDate: eventDateString)
-    }
-    
-    func embeddedSegue() {
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "toEventList" {
-                let destinationViewController = segue.destination as! EventsListTableViewController
-                destinationViewController.selectedDate = calendarView.selectedDates[0]
-            }
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -92,11 +83,8 @@ class CalendarViewController: UIViewController {
     func setUpCalendarViews(from visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
         
-        self.formatter.dateFormat = "yyyy"
-        self.calendarYear.text = self.formatter.string(from: date)
-        
-        self.formatter.dateFormat = "MMMM"
-        self.calendarMonth.text = self.formatter.string(from: date)
+        self.dateFormatter.dateFormat = "MMMM yyyy"
+        self.calendarMonth.text = self.dateFormatter.string(from: date)
     }
     
     // MARK: - Cell Configuration
@@ -130,16 +118,42 @@ class CalendarViewController: UIViewController {
             cell.isHidden = true
         }
     }
+    
+    // MARK: - Setting up event table view
+    func setUpEventTableView() {
+        calendarView.visibleDates { (visibleDates) in
+            UserService.fetchEvents(forUID: User.current.uid) { (events) in
+                let todaysEvents = self.sortEventsForMonth(events: events, from: visibleDates)
+                self.eventsArray = todaysEvents
+            }
+        }
+    }
+    
+    func sortEventsForMonth(events: [Event], from visibleDates: DateSegmentInfo) -> [Event] {
+        self.dateFormatter.dateFormat = "MMMM"
+        var eventsForToday = [Event]()
+        
+        for event in events {
+            let eventDate = event.startDate
+            let todaysDateObject = visibleDates.monthDates.first!.date
+            let todaysDate = self.dateFormatter.string(from: todaysDateObject)
+            if eventDate.range(of: todaysDate) != nil {
+                eventsForToday.append(event)
+            }
+        }
+        
+        return eventsForToday
+    }
 }
 
 extension CalendarViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        formatter.dateFormat = "yyyy MM dd"
-        formatter.timeZone = Calendar.current.timeZone
-        formatter.locale = Calendar.current.locale
+        dateFormatter.dateFormat = "yyyy MM dd"
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
         
-        let startDate = formatter.date(from: "2017 01 01")!
-        let endDate = formatter.date(from: "2017 12 31")!
+        let startDate = dateFormatter.date(from: "2017 01 01")!
+        let endDate = dateFormatter.date(from: "2017 12 31")!
         
         let parameters = ConfigurationParameters(
             startDate: startDate,
@@ -180,6 +194,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setUpCalendarViews(from: visibleDates)
+        setUpEventTableView()
     }
 }
 
@@ -195,5 +210,23 @@ extension UIView {
                 self.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
         )
+    }
+}
+
+extension CalendarViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return eventsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventsListTableViewCell", for: indexPath) as! EventListTableViewCell
+        
+        let index = indexPath.row
+        let event = eventsArray[index]
+        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        cell.eventNameLabel.text = event.name
+        cell.eventDateLabel.text = event.startDate
+        
+        return cell
     }
 }

@@ -26,7 +26,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Models/User.swift"
-                  timestampString = "524510870.421413"
+                  timestampString = "524584431.380442"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -41,7 +41,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Models/User.swift"
-                  timestampString = "524510870.424679"
+                  timestampString = "524584431.385471"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -90,60 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524083564.078097"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "EventsListTableViewController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventcal.EventsListTableViewController.init (style : __C.UITableViewStyle) -&gt; Eventcal.EventsListTableViewController"
-                  moduleName = "Eventcal"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/EventsListTableViewController.swift"
-                  timestampString = "524510870.444688"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "73">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventcal.EventsListTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Eventcal.EventsListTableViewController"
-                  moduleName = "Eventcal"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/EventsListTableViewController.swift"
-                  timestampString = "524510870.447629"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "130">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventcal.EventsListTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Eventcal.EventsListTableViewController&gt;"
-                  moduleName = "Eventcal"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/EventsListTableViewController.swift"
-                  timestampString = "524510870.450157"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "73">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -169,7 +122,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/StorageService.swift"
-                  timestampString = "524510870.459863"
+                  timestampString = "524584431.407676"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -184,7 +137,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/StorageService.swift"
-                  timestampString = "524510870.463584"
+                  timestampString = "524584431.410698"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -249,7 +202,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/UserService.swift"
-                  timestampString = "524510870.485562"
+                  timestampString = "524584431.432521"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -264,7 +217,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/UserService.swift"
-                  timestampString = "524510870.48902"
+                  timestampString = "524584431.436038"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"
@@ -329,60 +282,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524505635.785599"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "eventsArray"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventcal.EventsListTableViewController.init (style : __C.UITableViewStyle) -&gt; Eventcal.EventsListTableViewController"
-                  moduleName = "Eventcal"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/EventsListTableViewController.swift"
-                  timestampString = "524510870.515501"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "73">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventcal.EventsListTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Eventcal.EventsListTableViewController"
-                  moduleName = "Eventcal"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/EventsListTableViewController.swift"
-                  timestampString = "524510870.518877"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "130">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventcal.EventsListTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Eventcal.EventsListTableViewController&gt;"
-                  moduleName = "Eventcal"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/EventsListTableViewController.swift"
-                  timestampString = "524510870.522495"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "73">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -424,7 +330,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524505635.785599"
+            timestampString = "524521168.413725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -440,55 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524505635.785599"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524505635.785599"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524505635.785599"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524505635.785599"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -504,11 +378,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524505635.785599"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
+            timestampString = "524521168.413725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
+            timestampString = "524521168.413725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -520,12 +426,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524509877.241739"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "filterEventsForToday(events:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "sortEventsForToday(events:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -536,12 +442,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524509879.522189"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "filterEventsForToday(events:)"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "sortEventsForToday(events:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -552,28 +458,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524509881.370122"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "filterEventsForToday(events:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
-            timestampString = "524509883.438623"
+            timestampString = "524521168.413725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "filterEventsForToday(events:)"
+            landmarkName = "sortEventsForToday(events:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
+            timestampString = "524521168.413725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "sortEventsForToday(events:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/EventsListTableViewController.swift"
+            timestampString = "524521168.413725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "EventsListTableViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/CalendarViewController.swift"
+            timestampString = "524585237.30033"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -584,13 +522,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventcal/Controllers/CalendarViewController.swift"
-            timestampString = "524510608.092112"
+            timestampString = "524585237.30033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "9">
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "setUpEventTableView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eventcal.CalendarViewController.setUpEventTableView () -&gt; ()"
+                  moduleName = "Eventcal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/CalendarViewController.swift"
+                  timestampString = "524584431.48747"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eventcal.CalendarViewController.(setUpEventTableView () -&gt; ()).(closure #1)"
+                  moduleName = "Eventcal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/CalendarViewController.swift"
+                  timestampString = "524584431.490938"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/CalendarViewController.swift"
+            timestampString = "524585237.30033"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "calendar(_:didScrollToDateSegmentWith:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Controllers/CalendarViewController.swift"
+            timestampString = "524585237.30033"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "calendar(_:didScrollToDateSegmentWith:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
