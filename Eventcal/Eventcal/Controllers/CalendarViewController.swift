@@ -47,11 +47,14 @@ class CalendarViewController: UIViewController {
         
         guard let eventName = targetController.eventTitleTextField.text else { return }
         let eventDate = targetController.datePicker.date
+        let eventLocationName = targetController.locationTextField.text ?? ""
+        let eventLocationAddress = targetController.addressTextField.text ?? ""
         
         self.dateFormatter.dateFormat = "EEEE MMMM dd, yyyy - hh:mm a"
         let eventDateString = self.dateFormatter.string(from: eventDate)
         
-        EventService.create(eventName: eventName, eventDate: eventDateString)
+        EventService.create(eventName: eventName, eventStartDate: eventDateString, eventLocationName: eventLocationName, eventLocationAddress: eventLocationAddress)
+        
         setUpEventTableView()
     }
     
@@ -60,6 +63,13 @@ class CalendarViewController: UIViewController {
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController as! CreateEventViewController
             targetController.datePicker.date = calendarView.selectedDates[0]
+        }
+        
+        else if segue.identifier == "displayEventDetails" {
+            let indexPath = eventTableView.indexPathForSelectedRow!
+            let event = eventsArray[indexPath.row]
+            let displayEventViewController = segue.destination as! DisplayEventViewController
+            displayEventViewController.event = event
         }
     }
     
@@ -264,5 +274,11 @@ extension CalendarViewController: UITableViewDataSource {
         cell.eventDateLabel.text = event.startDate
         
         return cell
+    }
+}
+
+extension CalendarViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

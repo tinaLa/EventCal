@@ -29,6 +29,8 @@
 		9656B16D1F33B251003657E3 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9656B16C1F33B251003657E3 /* CreateEventViewController.swift */; };
 		96811ED91F31016F0057909C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96811ED81F31016F0057909C /* CalendarViewController.swift */; };
 		96811EDB1F3373610057909C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96811EDA1F3373610057909C /* Event.swift */; };
+		96B1D0971F462217003CDDB0 /* DisplayEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D0961F462217003CDDB0 /* DisplayEventViewController.swift */; };
+		96B1D0991F463525003CDDB0 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D0981F463525003CDDB0 /* EditEventViewController.swift */; };
 		96C4BFC71F3DF90B00C3BF74 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */; };
 		96C4BFCA1F3E1ED400C3BF74 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4BFC91F3E1ED400C3BF74 /* SideBarTableViewController.swift */; };
 		96C4BFCF1F3E3FAE00C3BF74 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C4BFCD1F3E3FAE00C3BF74 /* Events.storyboard */; };
@@ -64,6 +66,8 @@
 		9656B16C1F33B251003657E3 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventViewController.swift; path = Controllers/CreateEventViewController.swift; sourceTree = "<group>"; };
 		96811ED81F31016F0057909C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = Controllers/CalendarViewController.swift; sourceTree = "<group>"; };
 		96811EDA1F3373610057909C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
+		96B1D0961F462217003CDDB0 /* DisplayEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayEventViewController.swift; path = Controllers/DisplayEventViewController.swift; sourceTree = "<group>"; };
+		96B1D0981F463525003CDDB0 /* EditEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEventViewController.swift; path = Controllers/EditEventViewController.swift; sourceTree = "<group>"; };
 		96C4BFC41F3DF90A00C3BF74 /* Eventcal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Eventcal-Bridging-Header.h"; sourceTree = "<group>"; };
 		96C4BFC51F3DF90B00C3BF74 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		96C4BFC61F3DF90B00C3BF74 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -132,7 +136,9 @@
 				96811ED81F31016F0057909C /* CalendarViewController.swift */,
 				96EC84461F41E646006B5E00 /* RecurringEventsViewController.swift */,
 				96EC84481F41EB0E006B5E00 /* ProfileViewController.swift */,
+				96B1D0961F462217003CDDB0 /* DisplayEventViewController.swift */,
 				9656B16C1F33B251003657E3 /* CreateEventViewController.swift */,
+				96B1D0981F463525003CDDB0 /* EditEventViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96811ED91F31016F0057909C /* CalendarViewController.swift in Sources */,
+				96B1D0991F463525003CDDB0 /* EditEventViewController.swift in Sources */,
 				96C4BFC71F3DF90B00C3BF74 /* SWRevealViewController.m in Sources */,
 				96EC84471F41E646006B5E00 /* RecurringEventsViewController.swift in Sources */,
 				9643EAA01F2A4268001C8D2C /* SettingsViewController.swift in Sources */,
@@ -374,6 +381,7 @@
 				96EC844E1F41F4D9006B5E00 /* StorageService.swift in Sources */,
 				96EC84511F420F8B006B5E00 /* PFPService.swift in Sources */,
 				9643EA9C1F2A4268001C8D2C /* ViewController+Utility.swift in Sources */,
+				96B1D0971F462217003CDDB0 /* DisplayEventViewController.swift in Sources */,
 				9643EA9E1F2A4268001C8D2C /* ForgotPasswordViewController.swift in Sources */,
 				96E87EDA1F2A251700D8009B /* AppDelegate.swift in Sources */,
 				9643EA9B1F2A4268001C8D2C /* Storyboard+Utility.swift in Sources */,

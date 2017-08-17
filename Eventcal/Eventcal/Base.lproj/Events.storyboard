@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Event View Controller-->
+        <!--Create New Event-->
         <scene sceneID="BGt-0G-JIo">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="j8t-i2-77g" customClass="CreateEventViewController" customModule="Eventcal" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,6 +28,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="eventTitleEntered:" destination="j8t-i2-77g" eventType="editingChanged" id="1ZZ-82-nGL"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When is it?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-XP-cnt">
                                 <rect key="frame" x="16" y="130" width="343" height="30"/>
@@ -46,31 +49,131 @@
                                     <action selector="locationTextFieldTapped:" destination="j8t-i2-77g" eventType="touchDown" id="XO2-1P-32Q"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19G-7H-La0">
+                                <rect key="frame" x="16" y="206" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CHS-B6-4nq">
+                    <navigationItem key="navigationItem" title="Create New Event" id="CHS-B6-4nq">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Vug-6W-ast">
                             <connections>
                                 <segue destination="mvh-Zt-gI2" kind="unwind" unwindAction="cancelToCalendarWithSegue:" id="3cn-Hk-toW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eGx-f3-xRb">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="eGx-f3-xRb">
                             <connections>
                                 <segue destination="mvh-Zt-gI2" kind="unwind" unwindAction="saveEventDetailsWithSegue:" id="Z5M-jU-IQ5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressTextField" destination="19G-7H-La0" id="IYL-sL-2c9"/>
                         <outlet property="dateAndTimeTextField" destination="rMg-XP-cnt" id="HnH-Fm-UYg"/>
                         <outlet property="eventTitleTextField" destination="F03-5F-uJ4" id="402-5x-1nq"/>
                         <outlet property="locationTextField" destination="Jy0-DA-opd" id="6AE-Tj-WUn"/>
+                        <outlet property="saveBarButton" destination="eGx-f3-xRb" id="3rB-dn-iKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nut-G4-V9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mvh-Zt-gI2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="817" y="1648"/>
+            <point key="canvasLocation" x="816.79999999999995" y="1647.5262368815593"/>
+        </scene>
+        <!--Display Event View Controller-->
+        <scene sceneID="goW-kI-RPJ">
+            <objects>
+                <viewController id="KgQ-Ml-LUc" customClass="DisplayEventViewController" customModule="Eventcal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oBS-cb-ft6"/>
+                        <viewControllerLayoutGuide type="bottom" id="fEa-Uh-srh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pi0-Sy-Jyt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqp-IN-mts">
+                                <rect key="frame" x="133" y="95" width="109" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="yf7-hI-bMf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SP8-cb-cqA">
+                                <rect key="frame" x="124" y="162" width="126" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgM-xV-Q5W">
+                                <rect key="frame" x="106" y="204" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Location Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cl-RP-CoZ">
+                                <rect key="frame" x="97" y="242" width="180" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qgM-xV-Q5W" firstAttribute="top" secondItem="SP8-cb-cqA" secondAttribute="bottom" constant="21" id="2F5-ut-hwf"/>
+                            <constraint firstItem="3Cl-RP-CoZ" firstAttribute="top" secondItem="qgM-xV-Q5W" secondAttribute="bottom" constant="17" id="Aye-mi-HLF"/>
+                            <constraint firstItem="SP8-cb-cqA" firstAttribute="centerX" secondItem="Pi0-Sy-Jyt" secondAttribute="centerX" id="MZV-ib-Wj3"/>
+                            <constraint firstItem="mqp-IN-mts" firstAttribute="top" secondItem="oBS-cb-ft6" secondAttribute="bottom" constant="31" id="U2f-EA-I0a"/>
+                            <constraint firstItem="qgM-xV-Q5W" firstAttribute="centerX" secondItem="3Cl-RP-CoZ" secondAttribute="centerX" id="gco-rN-eep"/>
+                            <constraint firstItem="SP8-cb-cqA" firstAttribute="top" secondItem="mqp-IN-mts" secondAttribute="bottom" constant="46" id="o9N-eG-ewW"/>
+                            <constraint firstItem="SP8-cb-cqA" firstAttribute="centerX" secondItem="qgM-xV-Q5W" secondAttribute="centerX" id="p9p-87-IF8"/>
+                            <constraint firstItem="mqp-IN-mts" firstAttribute="centerX" secondItem="SP8-cb-cqA" secondAttribute="centerX" id="yP8-XW-gE9"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Qiz-vv-07n">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="w2p-uT-Eld">
+                            <connections>
+                                <segue destination="J12-fW-dYu" kind="presentation" id="NVf-e5-NMD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="eventDateLabel" destination="SP8-cb-cqA" id="E5A-ky-87E"/>
+                        <outlet property="eventLocationAddressLabel" destination="3Cl-RP-CoZ" id="xGH-tr-f7q"/>
+                        <outlet property="eventLocationNameLabel" destination="qgM-xV-Q5W" id="Nyt-aq-DO7"/>
+                        <outlet property="eventNameLabel" destination="mqp-IN-mts" id="d33-V6-wFu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9b-BY-mbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1111" y="2387"/>
+        </scene>
+        <!--Edit Event View Controller-->
+        <scene sceneID="l9B-m0-g6i">
+            <objects>
+                <viewController id="D5k-je-WBZ" customClass="EditEventViewController" customModule="Eventcal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oFw-oL-0S8"/>
+                        <viewControllerLayoutGuide type="bottom" id="qEh-DA-6iZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PLP-Cc-6cZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nUN-TG-mVA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uv0-8h-Aam" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="2386.9565217391305"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="wYA-gf-2LB">
@@ -218,11 +321,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventsListTableViewCell" id="E5I-5R-k8J" customClass="EventListTableViewCell" customModule="Eventcal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventsListTableViewCell" id="E5I-5R-k8J" customClass="EventListTableViewCell" customModule="Eventcal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E5I-5R-k8J" id="ii0-GK-FU3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNY-F9-EMm">
@@ -244,6 +347,7 @@
                                         <connections>
                                             <outlet property="eventDateLabel" destination="MXw-Gu-tB3" id="k86-FF-16E"/>
                                             <outlet property="eventNameLabel" destination="hNY-F9-EMm" id="fe1-VZ-niO"/>
+                                            <segue destination="KgQ-Ml-LUc" kind="show" identifier="displayEventDetails" id="2d2-hJ-F2Q"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -344,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsd-cK-Zy6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743.20000000000005" y="2900.5997001499254"/>
+            <point key="canvasLocation" x="-1111" y="3154"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lbv-qp-yjA">
@@ -363,7 +467,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mT-7F-83Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2798" y="2901"/>
+            <point key="canvasLocation" x="-2788" y="3155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="099-Yg-zLH">
@@ -384,7 +488,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMl-E9-ppp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1682.4000000000001" y="2900.5997001499254"/>
+            <point key="canvasLocation" x="-1977" y="3154"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UN7-lM-cTF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J12-fW-dYu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tVt-Lu-ciZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D5k-je-WBZ" kind="relationship" relationship="rootViewController" id="WcC-kX-SCq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pBj-ou-12t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-127.2" y="2386.9565217391305"/>
         </scene>
     </scenes>
     <resources>

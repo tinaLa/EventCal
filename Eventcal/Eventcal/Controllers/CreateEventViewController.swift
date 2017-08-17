@@ -11,9 +11,11 @@ import GooglePlaces
 
 class CreateEventViewController: UIViewController {
 
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var eventTitleTextField: UITextField!
     @IBOutlet weak var dateAndTimeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
     
     let datePicker = UIDatePicker()
     var placesClient: GMSPlacesClient!
@@ -24,6 +26,14 @@ class CreateEventViewController: UIViewController {
         createDatePicker()
         displayDateAndTime()
         placesClient = GMSPlacesClient.shared()
+    }
+    
+    @IBAction func eventTitleEntered(_ sender: Any) {
+        if eventTitleTextField.text?.isEmpty == false {
+            saveBarButton.isEnabled = true
+        } else {
+            saveBarButton.isEnabled = false
+        }
     }
     
     // MARK: - Event Date and Time
@@ -100,7 +110,8 @@ extension CreateEventViewController: GMSAutocompleteViewControllerDelegate {
         guard let placeAddress = place.formattedAddress else { return }
         
         dismiss(animated: true) {
-            self.locationTextField.text = "\(placeName) \(placeAddress)"
+            self.locationTextField.text = "\(placeName)"
+            self.addressTextField.text = "\(placeAddress)"
         }
     }
     
