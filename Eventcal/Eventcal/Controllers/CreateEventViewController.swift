@@ -13,18 +13,23 @@ class CreateEventViewController: UIViewController {
 
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var eventTitleTextField: UITextField!
-    @IBOutlet weak var dateAndTimeTextField: UITextField!
+    @IBOutlet weak var startDateTextField: UITextField!
+    @IBOutlet weak var endDateTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
-    let datePicker = UIDatePicker()
+    let startDatePicker = UIDatePicker()
+    let endDatePicker = UIDatePicker()
+    let dateFormatter = DateFormatter()
+    
     var placesClient: GMSPlacesClient!
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDatePicker()
-        displayDateAndTime()
+        createDatePickers()
+        startDisplayDateAndTime()
+        endDisplayDateAndTime()
         placesClient = GMSPlacesClient.shared()
     }
     
@@ -37,32 +42,54 @@ class CreateEventViewController: UIViewController {
     }
     
     // MARK: - Event Date and Time
-    func createDatePicker() {
-        // toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
+    func createDatePickers() {
+        // toolbars
+        let startToolbar = UIToolbar()
+        let endToolbar = UIToolbar()
         
-        // bar button "done" for toolbar
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonTapped))
+        startToolbar.sizeToFit()
+        endToolbar.sizeToFit()
         
-        toolbar.setItems([flexibleSpace, doneButton], animated: true)
+        // setting bar buttons
+        let startFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let startDoneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(startDoneButtonTapped))
+        startToolbar.setItems([startFlexibleSpace, startDoneButton], animated: true)
         
-        dateAndTimeTextField.inputAccessoryView = toolbar
-        dateAndTimeTextField.inputView = datePicker
+        let endFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let endDoneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(endDoneButtonTapped))
+        endToolbar.setItems([endFlexibleSpace, endDoneButton], animated: true)
+        
+        startDateTextField.inputAccessoryView = startToolbar
+        startDateTextField.inputView = startDatePicker
+        
+        endDateTextField.inputAccessoryView = endToolbar
+        endDateTextField.inputView = endDatePicker
     }
     
-    func doneButtonTapped() {
-        displayDateAndTime()
+    func startDoneButtonTapped() {
+        offsetEndDate()
+        startDisplayDateAndTime()
         self.view.endEditing(true)
     }
     
-    func displayDateAndTime() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .short
-        
-        dateAndTimeTextField.text = dateFormatter.string(from: datePicker.date)
+    func startDisplayDateAndTime() {
+        self.dateFormatter.dateStyle = .long
+        self.dateFormatter.timeStyle = .short
+        startDateTextField.text = self.dateFormatter.string(from: startDatePicker.date)
+    }
+    
+    func endDoneButtonTapped() {
+        endDisplayDateAndTime()
+        self.view.endEditing(true)
+    }
+    
+    func endDisplayDateAndTime() {
+        endDateTextField.text = self.dateFormatter.string(from: endDatePicker.date)
+    }
+    
+    func offsetEndDate() {
+        endDatePicker.date = startDatePicker.date.addingTimeInterval(60.0 * 60.0)
+        endDisplayDateAndTime()
     }
     
     // MARK: - Event Location

@@ -40,7 +40,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is it?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jy0-DA-opd">
-                                <rect key="frame" x="16" y="168" width="343" height="30"/>
+                                <rect key="frame" x="16" y="206" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,8 +49,15 @@
                                     <action selector="locationTextFieldTapped:" destination="j8t-i2-77g" eventType="touchDown" id="XO2-1P-32Q"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When does it end?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqX-QZ-d5P">
+                                <rect key="frame" x="16" y="168" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19G-7H-La0">
-                                <rect key="frame" x="16" y="206" width="343" height="30"/>
+                                <rect key="frame" x="16" y="244" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -73,10 +80,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="19G-7H-La0" id="IYL-sL-2c9"/>
-                        <outlet property="dateAndTimeTextField" destination="rMg-XP-cnt" id="HnH-Fm-UYg"/>
+                        <outlet property="endDateTextField" destination="hqX-QZ-d5P" id="EcB-VV-tRJ"/>
                         <outlet property="eventTitleTextField" destination="F03-5F-uJ4" id="402-5x-1nq"/>
                         <outlet property="locationTextField" destination="Jy0-DA-opd" id="6AE-Tj-WUn"/>
                         <outlet property="saveBarButton" destination="eGx-f3-xRb" id="3rB-dn-iKG"/>
+                        <outlet property="startDateTextField" destination="rMg-XP-cnt" id="g8K-PP-mBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nut-G4-V9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="-1111" y="2387"/>
         </scene>
-        <!--Edit Event View Controller-->
+        <!--Edit Event-->
         <scene sceneID="l9B-m0-g6i">
             <objects>
                 <viewController id="D5k-je-WBZ" customClass="EditEventViewController" customModule="Eventcal" customModuleProvider="target" sceneMemberID="viewController">
@@ -169,7 +177,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nUN-TG-mVA"/>
+                    <navigationItem key="navigationItem" title="Edit Event" id="nUN-TG-mVA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e03-e4-4CH"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="h84-ec-dtM"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uv0-8h-Aam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

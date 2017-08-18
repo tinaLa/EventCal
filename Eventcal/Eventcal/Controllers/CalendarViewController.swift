@@ -46,14 +46,16 @@ class CalendarViewController: UIViewController {
         let targetController = segue.source as! CreateEventViewController
         
         guard let eventName = targetController.eventTitleTextField.text else { return }
-        let eventDate = targetController.datePicker.date
+        let eventStartDate = targetController.startDatePicker.date
+        let eventEndDate = targetController.endDatePicker.date
         let eventLocationName = targetController.locationTextField.text ?? ""
         let eventLocationAddress = targetController.addressTextField.text ?? ""
         
         self.dateFormatter.dateFormat = "EEEE MMMM dd, yyyy - hh:mm a"
-        let eventDateString = self.dateFormatter.string(from: eventDate)
+        let eventStartDateString = self.dateFormatter.string(from: eventStartDate)
+        let eventEndDateString = self.dateFormatter.string(from: eventEndDate)
         
-        EventService.create(eventName: eventName, eventStartDate: eventDateString, eventLocationName: eventLocationName, eventLocationAddress: eventLocationAddress)
+        EventService.create(eventName: eventName, eventStartDate: eventStartDateString, eventEndDate: eventEndDateString, eventLocationName: eventLocationName, eventLocationAddress: eventLocationAddress)
         
         setUpEventTableView()
     }
@@ -62,7 +64,17 @@ class CalendarViewController: UIViewController {
         if segue.identifier == "toCreateEvent" {
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController as! CreateEventViewController
-            targetController.datePicker.date = calendarView.selectedDates[0]
+            
+            var selectedStart = calendarView.selectedDates[0]
+            self.dateFormatter.dateFormat = "MMMM dd, yyyy"
+            if self.dateFormatter.string(from: selectedStart) == self.dateFormatter.string(from: Date()) {
+                selectedStart = Date()
+            }
+            let defaultEnd = selectedStart.addingTimeInterval(60.0 * 60.0)
+            
+            targetController.startDatePicker.date = selectedStart
+            targetController.endDatePicker.date = defaultEnd
+            targetController.endDatePicker.minimumDate = selectedStart.addingTimeInterval(60.0)
         }
         
         else if segue.identifier == "displayEventDetails" {

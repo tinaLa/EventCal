@@ -11,9 +11,9 @@ import FirebaseDatabase
 
 struct EventService {
     
-    static func create(eventName: String, eventStartDate: String, eventLocationName: String, eventLocationAddress: String) {
+    static func create(eventName: String, eventStartDate: String, eventEndDate: String, eventLocationName: String, eventLocationAddress: String) {
         
-        let event = Event(eventName: eventName, eventStartDate: eventStartDate, eventLocationName: eventLocationName, eventLocationAddress: eventLocationAddress)
+        let event = Event(eventName: eventName, eventStartDate: eventStartDate, eventEndDate: eventEndDate, eventLocationName: eventLocationName, eventLocationAddress: eventLocationAddress)
         let eventAttrs: [String : Any] = event.dictValue
         
         // write to eventInfo branch in database
