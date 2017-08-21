@@ -103,8 +103,8 @@ class CreateEventViewController: UIViewController {
             guard let currentLatitude = coordinates?.latitude else { return }
             guard let currentLongitude = coordinates?.longitude else { return }
             
-            let northeastBounds = CLLocationCoordinate2D(latitude: currentLatitude + 5.0, longitude: currentLongitude + 5.0)
-            let southwestBounds = CLLocationCoordinate2D(latitude: currentLatitude - 5.0, longitude: currentLongitude - 5.0)
+            let northeastBounds = CLLocationCoordinate2D(latitude: currentLatitude + 2.0, longitude: currentLongitude + 2.0)
+            let southwestBounds = CLLocationCoordinate2D(latitude: currentLatitude - 2.0, longitude: currentLongitude - 2.0)
             
             autocompleteController.autocompleteBounds = GMSCoordinateBounds(coordinate: northeastBounds, coordinate: southwestBounds)
         }

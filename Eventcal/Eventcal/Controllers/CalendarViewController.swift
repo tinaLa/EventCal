@@ -18,9 +18,14 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     let dateFormatter = DateFormatter()
+    let todaysDate = Date()
     
-    var eventsArray = [Event]() {
-        didSet { eventTableView.reloadData() }
+    var allEvents = [Event]()
+    var eventsForToday = [Event]() {
+        didSet {
+            eventTableView.reloadData()
+            calendarView.reloadData()
+        }
     }
     
     // MARK: - Present side menu
@@ -36,8 +41,15 @@ class CalendarViewController: UIViewController {
     // MARK: - viewDidLoad and segues
     override func viewDidLoad() {
         super.viewDidLoad()
+        // getEvents()
         presentSideMenu()
         setUpCalendar()
+    }
+    
+    func getEvents() {
+        UserService.fetchEvents(forUID: User.current.uid) { (events) in
+            // self.allEventsArray = events
+        }
     }
     
     @IBAction func cancelToCalendar(segue: UIStoryboardSegue) { }
@@ -79,7 +91,7 @@ class CalendarViewController: UIViewController {
         
         else if segue.identifier == "displayEventDetails" {
             let indexPath = eventTableView.indexPathForSelectedRow!
-            let event = eventsArray[indexPath.row]
+            let event = eventsForToday[indexPath.row]
             let displayEventViewController = segue.destination as! DisplayEventViewController
             displayEventViewController.event = event
         }
@@ -116,6 +128,7 @@ class CalendarViewController: UIViewController {
         handleCellSelection(cell: validCell, cellState: cellState)
         handleCellTextColor(cell: validCell, cellState: cellState)
         handleCellVisibility(cell: validCell, cellState: cellState)
+        handleEventsIndicator(cell: validCell, cellState: cellState)
     }
     
     func handleCellSelection(cell: CustomCell, cellState: CellState) {
@@ -127,10 +140,16 @@ class CalendarViewController: UIViewController {
     }
     
     func handleCellTextColor(cell: CustomCell, cellState: CellState) {
-        if cellState.isSelected {
-            cell.dateLabel.textColor = .black
-        } else if cellState.dateBelongsTo == .thisMonth {
-                cell.dateLabel.textColor = .white
+        self.dateFormatter.dateFormat = "MMMM dd, yyyy"
+        
+        let todaysDateString = self.dateFormatter.string(from: self.todaysDate)
+        let dateString = self.dateFormatter.string(from: cellState.date)
+        
+        if todaysDateString == dateString {
+            cell.dateLabel.textColor = .blue
+        }
+        else {
+            cell.dateLabel.textColor = cellState.isSelected ? .black : .white
         }
     }
     
@@ -142,12 +161,25 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    func handleEventsIndicator(cell: CustomCell, cellState: CellState) {
+        self.dateFormatter.dateFormat = "MMMM dd, yyyy"
+        let date = self.dateFormatter.string(from: cellState.date)
+        for event in allEvents {
+            if event.startDate.range(of: date) != nil {
+                cell.eventView.isHidden = false
+                break
+            } else {
+                cell.eventView.isHidden = true
+            }
+        }
+    }
+    
     // MARK: - Setting up event table view
     func setUpEventTableView() {
         calendarView.visibleDates { (visibleDates) in
             UserService.fetchEvents(forUID: User.current.uid) { (events) in
-                let todaysEvents = self.sortEventsForMonth(events: events, from: visibleDates)
-                self.eventsArray = todaysEvents
+                self.allEvents = events
+                self.eventsForToday = self.sortEventsForMonth(events: events, from: visibleDates)
             }
         }
     }
@@ -273,14 +305,14 @@ extension UIView {
 
 extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsArray.count
+        return eventsForToday.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventsListTableViewCell", for: indexPath) as! EventListTableViewCell
         
         let index = indexPath.row
-        let event = eventsArray[index]
+        let event = eventsForToday[index]
         self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         cell.eventNameLabel.text = event.name
         cell.eventDateLabel.text = event.startDate
