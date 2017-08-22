@@ -120,13 +120,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgM-xV-Q5W">
-                                <rect key="frame" x="106" y="204" width="162" height="21"/>
+                                <rect key="frame" x="106" y="236" width="162" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Location Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cl-RP-CoZ">
-                                <rect key="frame" x="97" y="242" width="180" height="21"/>
+                                <rect key="frame" x="97" y="275" width="180" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enr-AR-sgL">
+                                <rect key="frame" x="129" y="199" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -134,13 +140,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qgM-xV-Q5W" firstAttribute="top" secondItem="SP8-cb-cqA" secondAttribute="bottom" constant="21" id="2F5-ut-hwf"/>
-                            <constraint firstItem="3Cl-RP-CoZ" firstAttribute="top" secondItem="qgM-xV-Q5W" secondAttribute="bottom" constant="17" id="Aye-mi-HLF"/>
+                            <constraint firstItem="qgM-xV-Q5W" firstAttribute="top" secondItem="Enr-AR-sgL" secondAttribute="bottom" constant="16" id="DqB-gt-xFX"/>
+                            <constraint firstItem="qgM-xV-Q5W" firstAttribute="centerX" secondItem="3Cl-RP-CoZ" secondAttribute="centerX" id="Hfx-hS-rNl"/>
+                            <constraint firstItem="Enr-AR-sgL" firstAttribute="centerX" secondItem="SP8-cb-cqA" secondAttribute="centerX" id="Je8-jv-6ql"/>
                             <constraint firstItem="SP8-cb-cqA" firstAttribute="centerX" secondItem="Pi0-Sy-Jyt" secondAttribute="centerX" id="MZV-ib-Wj3"/>
+                            <constraint firstItem="Enr-AR-sgL" firstAttribute="centerX" secondItem="qgM-xV-Q5W" secondAttribute="centerX" id="NUO-Te-A6m"/>
                             <constraint firstItem="mqp-IN-mts" firstAttribute="top" secondItem="oBS-cb-ft6" secondAttribute="bottom" constant="31" id="U2f-EA-I0a"/>
-                            <constraint firstItem="qgM-xV-Q5W" firstAttribute="centerX" secondItem="3Cl-RP-CoZ" secondAttribute="centerX" id="gco-rN-eep"/>
+                            <constraint firstItem="Enr-AR-sgL" firstAttribute="top" secondItem="SP8-cb-cqA" secondAttribute="bottom" constant="16" id="b0G-J3-k6o"/>
+                            <constraint firstItem="3Cl-RP-CoZ" firstAttribute="top" secondItem="qgM-xV-Q5W" secondAttribute="bottom" constant="18" id="jFK-dc-0TO"/>
                             <constraint firstItem="SP8-cb-cqA" firstAttribute="top" secondItem="mqp-IN-mts" secondAttribute="bottom" constant="46" id="o9N-eG-ewW"/>
-                            <constraint firstItem="SP8-cb-cqA" firstAttribute="centerX" secondItem="qgM-xV-Q5W" secondAttribute="centerX" id="p9p-87-IF8"/>
                             <constraint firstItem="mqp-IN-mts" firstAttribute="centerX" secondItem="SP8-cb-cqA" secondAttribute="centerX" id="yP8-XW-gE9"/>
                         </constraints>
                     </view>
@@ -148,16 +156,17 @@
                     <navigationItem key="navigationItem" id="Qiz-vv-07n">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="w2p-uT-Eld">
                             <connections>
-                                <segue destination="J12-fW-dYu" kind="presentation" id="NVf-e5-NMD"/>
+                                <segue destination="J12-fW-dYu" kind="presentation" identifier="editEvent" id="NVf-e5-NMD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="eventDateLabel" destination="SP8-cb-cqA" id="E5A-ky-87E"/>
+                        <outlet property="eventEndDateLabel" destination="Enr-AR-sgL" id="xDR-6R-mXr"/>
                         <outlet property="eventLocationAddressLabel" destination="3Cl-RP-CoZ" id="xGH-tr-f7q"/>
                         <outlet property="eventLocationNameLabel" destination="qgM-xV-Q5W" id="Nyt-aq-DO7"/>
                         <outlet property="eventNameLabel" destination="mqp-IN-mts" id="d33-V6-wFu"/>
+                        <outlet property="eventStartDateLabel" destination="SP8-cb-cqA" id="gvL-wX-Vc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9b-BY-mbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,14 +184,80 @@
                     <view key="view" contentMode="scaleToFill" id="PLP-Cc-6cZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zaI-NI-efx">
+                                <rect key="frame" x="16" y="88" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="eventNameChanged:" destination="D5k-je-WBZ" eventType="editingChanged" id="887-kB-T8n"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When is it?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6yC-So-bw6">
+                                <rect key="frame" x="16" y="126" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="eventStartChanged:" destination="D5k-je-WBZ" eventType="editingDidEnd" id="5Bc-hz-aqH"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When does it end?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nea-e5-EVS">
+                                <rect key="frame" x="16" y="164" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="eventEndChanged:" destination="D5k-je-WBZ" eventType="editingDidEnd" id="Rlm-3a-YEu"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is it?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pxb-Dm-ZES">
+                                <rect key="frame" x="16" y="202" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="locationTextFieldTapped:" destination="D5k-je-WBZ" eventType="touchDown" id="p6l-wc-WaF"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PV5-m8-8tI">
+                                <rect key="frame" x="16" y="240" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Event" id="nUN-TG-mVA">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e03-e4-4CH"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="h84-ec-dtM"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e03-e4-4CH">
+                            <connections>
+                                <segue destination="yRa-2t-DFT" kind="unwind" unwindAction="cancelToEventPageWithSegue:" id="vFy-c4-RNa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="h84-ec-dtM">
+                            <connections>
+                                <segue destination="yRa-2t-DFT" kind="unwind" unwindAction="saveEventDetailsWithSegue:" id="QwI-7W-28b"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressTextField" destination="PV5-m8-8tI" id="HCA-ao-FE7"/>
+                        <outlet property="endDateTextField" destination="nea-e5-EVS" id="N1B-6f-Min"/>
+                        <outlet property="eventTitleTextField" destination="zaI-NI-efx" id="i9P-ag-MD0"/>
+                        <outlet property="locationTextField" destination="pxb-Dm-ZES" id="YBf-nd-dNq"/>
+                        <outlet property="saveBarButton" destination="h84-ec-dtM" id="rCQ-Sm-15P"/>
+                        <outlet property="startDateTextField" destination="6yC-So-bw6" id="HTs-0r-FhB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uv0-8h-Aam" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yRa-2t-DFT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="812" y="2386.9565217391305"/>
         </scene>

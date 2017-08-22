@@ -40,6 +40,14 @@
 		96EC844C1F41F07A006B5E00 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC844B1F41F07A006B5E00 /* PhotoHelper.swift */; };
 		96EC844E1F41F4D9006B5E00 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC844D1F41F4D9006B5E00 /* StorageService.swift */; };
 		96EC84511F420F8B006B5E00 /* PFPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EC84501F420F8B006B5E00 /* PFPService.swift */; };
+		96F3D3061F4B29A2002C3D2A /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3D3051F4B29A2002C3D2A /* FriendsTableViewController.swift */; };
+		96F3D3081F4B2E45002C3D2A /* FindFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3D3071F4B2E45002C3D2A /* FindFriendsTableViewController.swift */; };
+		96F3D30A1F4B2F9B002C3D2A /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3D3091F4B2F9B002C3D2A /* FriendsTableViewCell.swift */; };
+		96F3D30C1F4B33E8002C3D2A /* FindFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3D30B1F4B33E8002C3D2A /* FindFriendsTableViewCell.swift */; };
+		96F3D30F1F4B3A56002C3D2A /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F3D30D1F4B3A56002C3D2A /* Friends.storyboard */; };
+		96F3D3111F4B3ABD002C3D2A /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3D3101F4B3ABD002C3D2A /* FriendRequestTableViewCell.swift */; };
+		96F3D3131F4B3AD9002C3D2A /* FriendRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3D3121F4B3AD9002C3D2A /* FriendRequestTableViewController.swift */; };
+		96F3D3151F4B4F88002C3D2A /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3D3141F4B4F88002C3D2A /* FriendService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +89,14 @@
 		96EC844B1F41F07A006B5E00 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoHelper.swift; path = Helpers/PhotoHelper.swift; sourceTree = "<group>"; };
 		96EC844D1F41F4D9006B5E00 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = Services/StorageService.swift; sourceTree = "<group>"; };
 		96EC84501F420F8B006B5E00 /* PFPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFPService.swift; sourceTree = "<group>"; };
+		96F3D3051F4B29A2002C3D2A /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsTableViewController.swift; path = Controllers/FriendsTableViewController.swift; sourceTree = "<group>"; };
+		96F3D3071F4B2E45002C3D2A /* FindFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindFriendsTableViewController.swift; path = Controllers/FindFriendsTableViewController.swift; sourceTree = "<group>"; };
+		96F3D3091F4B2F9B002C3D2A /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsTableViewCell.swift; path = Views/FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		96F3D30B1F4B33E8002C3D2A /* FindFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindFriendsTableViewCell.swift; path = Views/FindFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		96F3D30E1F4B3A56002C3D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Friends.storyboard; sourceTree = "<group>"; };
+		96F3D3101F4B3ABD002C3D2A /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendRequestTableViewCell.swift; path = Views/FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
+		96F3D3121F4B3AD9002C3D2A /* FriendRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendRequestTableViewController.swift; path = Controllers/FriendRequestTableViewController.swift; sourceTree = "<group>"; };
+		96F3D3141F4B4F88002C3D2A /* FriendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendService.swift; sourceTree = "<group>"; };
 		CEF51D299D411DF92D61A8C5 /* Pods-Eventcal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventcal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eventcal/Pods-Eventcal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +125,9 @@
 			children = (
 				961A321B1F30F1060082A789 /* CustomCell.swift */,
 				9614D9131F3A2F9C00509A76 /* EventListTableViewCell.swift */,
+				96F3D3091F4B2F9B002C3D2A /* FriendsTableViewCell.swift */,
+				96F3D30B1F4B33E8002C3D2A /* FindFriendsTableViewCell.swift */,
+				96F3D3101F4B3ABD002C3D2A /* FriendRequestTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -119,6 +138,7 @@
 				9643EA8B1F2A3CCD001C8D2C /* LaunchScreen.storyboard */,
 				9643EA8C1F2A3CCD001C8D2C /* Login.storyboard */,
 				9643EA8D1F2A3CCD001C8D2C /* Main.storyboard */,
+				96F3D30D1F4B3A56002C3D2A /* Friends.storyboard */,
 				96C4BFCD1F3E3FAE00C3BF74 /* Events.storyboard */,
 			);
 			path = Base.lproj;
@@ -139,6 +159,9 @@
 				96B1D0961F462217003CDDB0 /* DisplayEventViewController.swift */,
 				9656B16C1F33B251003657E3 /* CreateEventViewController.swift */,
 				96B1D0981F463525003CDDB0 /* EditEventViewController.swift */,
+				96F3D3051F4B29A2002C3D2A /* FriendsTableViewController.swift */,
+				96F3D3071F4B2E45002C3D2A /* FindFriendsTableViewController.swift */,
+				96F3D3121F4B3AD9002C3D2A /* FriendRequestTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -158,6 +181,7 @@
 				9643EA981F2A4268001C8D2C /* AuthService.swift */,
 				9643EA991F2A4268001C8D2C /* UserService.swift */,
 				9614D90C1F34E42100509A76 /* EventService.swift */,
+				96F3D3141F4B4F88002C3D2A /* FriendService.swift */,
 				96EC844D1F41F4D9006B5E00 /* StorageService.swift */,
 				96EC84501F420F8B006B5E00 /* PFPService.swift */,
 			);
@@ -302,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9643EA861F2A3A7E001C8D2C /* GoogleService-Info.plist in Resources */,
+				96F3D30F1F4B3A56002C3D2A /* Friends.storyboard in Resources */,
 				9643EA901F2A3CCD001C8D2C /* Login.storyboard in Resources */,
 				9643EA911F2A3CCD001C8D2C /* Main.storyboard in Resources */,
 				9643EA8F1F2A3CCD001C8D2C /* LaunchScreen.storyboard in Resources */,
@@ -374,15 +399,20 @@
 				96C4BFCA1F3E1ED400C3BF74 /* SideBarTableViewController.swift in Sources */,
 				96EC84491F41EB0E006B5E00 /* ProfileViewController.swift in Sources */,
 				9614D90D1F34E42100509A76 /* EventService.swift in Sources */,
+				96F3D3131F4B3AD9002C3D2A /* FriendRequestTableViewController.swift in Sources */,
 				9656B16D1F33B251003657E3 /* CreateEventViewController.swift in Sources */,
 				961A321C1F30F1060082A789 /* CustomCell.swift in Sources */,
 				9643EAA21F2A4268001C8D2C /* UserService.swift in Sources */,
+				96F3D30C1F4B33E8002C3D2A /* FindFriendsTableViewCell.swift in Sources */,
 				96EC844C1F41F07A006B5E00 /* PhotoHelper.swift in Sources */,
+				96F3D30A1F4B2F9B002C3D2A /* FriendsTableViewCell.swift in Sources */,
 				96EC844E1F41F4D9006B5E00 /* StorageService.swift in Sources */,
 				96EC84511F420F8B006B5E00 /* PFPService.swift in Sources */,
 				9643EA9C1F2A4268001C8D2C /* ViewController+Utility.swift in Sources */,
 				96B1D0971F462217003CDDB0 /* DisplayEventViewController.swift in Sources */,
+				96F3D3151F4B4F88002C3D2A /* FriendService.swift in Sources */,
 				9643EA9E1F2A4268001C8D2C /* ForgotPasswordViewController.swift in Sources */,
+				96F3D3111F4B3ABD002C3D2A /* FriendRequestTableViewCell.swift in Sources */,
 				96E87EDA1F2A251700D8009B /* AppDelegate.swift in Sources */,
 				9643EA9B1F2A4268001C8D2C /* Storyboard+Utility.swift in Sources */,
 				9614D9141F3A2F9C00509A76 /* EventListTableViewCell.swift in Sources */,
@@ -390,6 +420,8 @@
 				9643EAA31F2A4268001C8D2C /* User.swift in Sources */,
 				9643EAA11F2A4268001C8D2C /* AuthService.swift in Sources */,
 				96811EDB1F3373610057909C /* Event.swift in Sources */,
+				96F3D3061F4B29A2002C3D2A /* FriendsTableViewController.swift in Sources */,
+				96F3D3081F4B2E45002C3D2A /* FindFriendsTableViewController.swift in Sources */,
 				9614D90F1F38AC0200509A76 /* InitialScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +435,14 @@
 				96C4BFCE1F3E3FAE00C3BF74 /* Base */,
 			);
 			name = Events.storyboard;
+			sourceTree = "<group>";
+		};
+		96F3D30D1F4B3A56002C3D2A /* Friends.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96F3D30E1F4B3A56002C3D2A /* Base */,
+			);
+			name = Friends.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

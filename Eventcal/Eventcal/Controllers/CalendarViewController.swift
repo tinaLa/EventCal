@@ -38,18 +38,12 @@ class CalendarViewController: UIViewController {
         }
     }
     
-    // MARK: - viewDidLoad and segues
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // getEvents()
+    // MARK: - viewWillAppear and segues
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setUpEventTableView()
         presentSideMenu()
         setUpCalendar()
-    }
-    
-    func getEvents() {
-        UserService.fetchEvents(forUID: User.current.uid) { (events) in
-            // self.allEventsArray = events
-        }
     }
     
     @IBAction func cancelToCalendar(segue: UIStoryboardSegue) { }
@@ -93,7 +87,7 @@ class CalendarViewController: UIViewController {
             let indexPath = eventTableView.indexPathForSelectedRow!
             let event = eventsForToday[indexPath.row]
             let displayEventViewController = segue.destination as! DisplayEventViewController
-            displayEventViewController.event = event
+            displayEventViewController.eventKey = event.key
         }
     }
     
