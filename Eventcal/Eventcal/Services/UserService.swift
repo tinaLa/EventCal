@@ -86,7 +86,19 @@ struct UserService {
                     .flatMap(User.init)
                     .filter { $0.uid != currentUser.uid }
             
-            completion(users)
+            let dispatchGroup = DispatchGroup()
+            users.forEach { (user) in
+                dispatchGroup.enter()
+
+                FriendService.isUserFriend(user) { (isFriend) in
+                    user.isFriend = isFriend
+                    dispatchGroup.leave()
+                }
+            }
+            
+            dispatchGroup.notify(queue: .main, execute: {
+                completion(users)
+            })
         })
     }
 }

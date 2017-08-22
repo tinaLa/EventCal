@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -84,7 +86,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="871-Gh-CXd">
-                                            <rect key="frame" x="14" y="12" width="45" height="21"/>
+                                            <rect key="frame" x="14" y="10" width="45" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -92,6 +94,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="871-Gh-CXd" id="DdO-sS-JL9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -108,7 +113,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd0-za-qv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5663" y="4056"/>
+            <point key="canvasLocation" x="-5663.1999999999998" y="4055.6221889055473"/>
         </scene>
         <!--Find Friends-->
         <scene sceneID="nny-ni-B0V">
@@ -133,16 +138,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHt-wv-Gjn">
-                                            <rect key="frame" x="331" y="7" width="30" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHt-wv-Gjn">
+                                            <rect key="frame" x="295" y="7" width="66" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Add"/>
+                                            <state key="normal" title="Add">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addFriend:" destination="JVC-1d-kgH" eventType="touchUpInside" id="ywu-wS-pdq"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addButton" destination="yHt-wv-Gjn" id="obB-jX-ZeG"/>
                                     <outlet property="nameLabel" destination="7yW-zk-vzU" id="zc2-3i-okf"/>
+                                    <segue destination="jG7-YD-LJt" kind="show" identifier="viewProfile" id="Eiu-Pq-gzh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -160,7 +171,59 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enN-ps-HIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4828" y="4056"/>
+            <point key="canvasLocation" x="-4828" y="4055.6221889055473"/>
+        </scene>
+        <!--Other User Profile View Controller-->
+        <scene sceneID="q0H-85-KXJ">
+            <objects>
+                <viewController id="jG7-YD-LJt" customClass="OtherUserProfileViewController" customModule="Eventcal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZaS-mf-oUe"/>
+                        <viewControllerLayoutGuide type="bottom" id="LWo-Ky-2VC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MSf-vY-0Ll">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-Yh-7PD">
+                                <rect key="frame" x="87" y="120" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Dfa-SO-bKh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8m-D6-Pjc">
+                                <rect key="frame" x="87" y="346" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="trailing" secondItem="L8m-D6-Pjc" secondAttribute="trailing" id="1bt-LK-yQg"/>
+                            <constraint firstItem="L8m-D6-Pjc" firstAttribute="top" secondItem="4TQ-Yh-7PD" secondAttribute="bottom" constant="26" id="2jT-dg-Wwr"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="leading" secondItem="L8m-D6-Pjc" secondAttribute="leading" id="58N-fm-kEf"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="leading" secondItem="MSf-vY-0Ll" secondAttribute="leadingMargin" constant="71" id="cbf-5K-Pax"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="centerX" secondItem="MSf-vY-0Ll" secondAttribute="centerX" id="g6i-oR-ukf"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="top" secondItem="ZaS-mf-oUe" secondAttribute="bottom" constant="56" id="mVt-95-6Ac"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xTr-RK-L14">
+                        <rightBarButtonItems>
+                            <barButtonItem image="icons8-unfriend_male" id="25j-ZE-xFw"/>
+                            <barButtonItem image="icons8-add_user" id="ydD-XU-1hg"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="L8m-D6-Pjc" id="GsW-Sk-ZWG"/>
+                        <outlet property="profilePictureView" destination="4TQ-Yh-7PD" id="gaQ-84-gsC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJf-tA-yLi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4828" y="4795"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pE6-IT-Bcl">
@@ -174,8 +237,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="TOz-Fj-DtJ" kind="relationship" relationship="viewControllers" id="6a2-r8-yo2"/>
-                        <segue destination="r8R-cc-aoP" kind="relationship" relationship="viewControllers" id="v4V-qu-Lti"/>
                         <segue destination="ctX-At-boA" kind="relationship" relationship="viewControllers" id="v7S-b2-Qs1"/>
+                        <segue destination="r8R-cc-aoP" kind="relationship" relationship="viewControllers" id="v4V-qu-Lti"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Bq-7m-cb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,9 +310,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-add_user" width="25" height="25"/>
         <image name="icons8-add_user_group" width="25" height="25"/>
         <image name="icons8-inbox" width="25" height="25"/>
         <image name="icons8-menu" width="25" height="25"/>
+        <image name="icons8-unfriend_male" width="25" height="25"/>
         <image name="icons8-user_group_man_man" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

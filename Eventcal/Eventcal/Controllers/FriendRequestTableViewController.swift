@@ -10,7 +10,7 @@ import UIKit
 
 class FriendRequestTableViewController: UITableViewController {
 
-    let requests = [User]()
+    var requests = [User]()
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -27,20 +27,23 @@ class FriendRequestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu()
+        getRequests()
     }
 
+    func getRequests() {
+        FriendService.fetchFriendRequests { (requests) in
+            self.requests = requests
+        }
+    }
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return requests.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendRequestCell", for: indexPath) as! FriendRequestTableViewCell
         return cell
     }
 

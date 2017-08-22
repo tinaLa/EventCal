@@ -21,6 +21,9 @@ class User : NSObject {
                 "lastName" : lastName]
     }
     
+    var isRequested = false
+    var isFriend = false
+    
     // Standard User init()
     init(uid: String, firstName: String, lastName: String) {
         self.uid = uid

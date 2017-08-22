@@ -66,4 +66,79 @@ struct FriendService {
             success(error == nil)
         }
     }
+    
+    static func setIsRequested(_ isRequested: Bool, fromCurrentUserTo newFriend: User, success: @escaping (Bool) -> Void) {
+        if isRequested {
+            sendFriendRequest(newFriend, success: success)
+        } else {
+            deleteFriendRequest(newFriend, success: success)
+        }
+    }
+    
+    static func isUserRequested(_ user: User, byCurrentUserWithCompletion completion: @escaping (Bool) -> Void) {
+        let currentUID = User.current.uid
+        let ref = Database.database().reference().child("requests_sent").child(user.uid)
+        
+        ref.queryEqual(toValue: nil, childKey: currentUID).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? [String : Bool] {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
+    
+    static func isUserFriend(_ user: User, byCurrentUserWithCompletion completion: @escaping (Bool) -> Void) {
+        let currentUID = User.current.uid
+        let ref = Database.database().reference().child("friends").child(user.uid)
+        
+        ref.queryEqual(toValue: nil, childKey: currentUID).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? [String : Bool] {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
+    
+    static func fetchFriendRequests(success: @escaping ([User]) -> Void) {
+        let currentUID = User.current.uid
+        let ref = Database.database().reference().child("requests_received").child(currentUID)
+        var requests = [User]()
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshots) in
+            guard let snapshots = snapshots.children.allObjects as? [DataSnapshot] else {
+                return success([])
+            }
+            
+            for snapshot in snapshots {
+                guard let user = User(snapshot: snapshot) else {
+                    print("something went wrong with fetching friend requests")
+                    return
+                }
+                requests.append(user)
+            }
+            success(requests)
+        })
+    }
+    
+    static func fetchFriends(uid: String, success: @escaping ([User]) -> Void) {
+        let ref = Database.database().reference().child("friends").child(uid)
+        var friends = [User]()
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshots) in
+            guard let snapshots = snapshots.children.allObjects as? [DataSnapshot] else {
+                return success([])
+            }
+            
+            for snapshot in snapshots {
+                guard let user = User(snapshot: snapshot) else {
+                    print("something went wrong with fetching friends")
+                    return
+                }
+                friends.append(user)
+            }
+            success(friends)
+        })
+    }
 }

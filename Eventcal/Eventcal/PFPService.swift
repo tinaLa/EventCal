@@ -27,7 +27,6 @@ struct PFPService {
     }
     
     static func retreiveURL(uid: String, completion: @escaping (String?) -> Void) {
-        let uid = User.current.uid
         let urlRef = Database.database().reference().child("pfp_url").child(uid)
         urlRef.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let pfp = snapshot.value as? String else {
