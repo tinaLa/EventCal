@@ -10,7 +10,10 @@ import UIKit
 
 class FriendRequestTableViewController: UITableViewController {
 
-    var requests = [User]()
+    var request_uids = [String]()
+    var requests = [User]() {
+        didSet { tableView.reloadData() }
+    }
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -27,15 +30,19 @@ class FriendRequestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu()
-        getRequests()
-    }
-
-    func getRequests() {
+        
         FriendService.fetchFriendRequests { (requests) in
-            self.requests = requests
+            self.request_uids = requests
+            
+            for uid in self.request_uids {
+                UserService.show(forUID: uid, completion: { (user) in
+                    guard let user = user else { return }
+                    self.requests.append(user)
+                })
+            }
         }
     }
-    
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,7 +51,13 @@ class FriendRequestTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendRequestCell", for: indexPath) as! FriendRequestTableViewCell
+        configure(cell: cell, atIndexPath: indexPath)
         return cell
+    }
+    
+    func configure(cell: FriendRequestTableViewCell, atIndexPath indexPath: IndexPath) {
+        let user = requests[indexPath.row]
+        cell.nameLabel.text = "\(user.firstName) \(user.lastName)"
     }
 
     /*

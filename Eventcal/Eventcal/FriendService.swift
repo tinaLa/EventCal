@@ -88,6 +88,19 @@ struct FriendService {
         })
     }
     
+    static func hasUserRequested(_ user: User, byCurrentUserWithCompletion completion: @escaping (Bool) -> Void) {
+        let currentUID = User.current.uid
+        let ref = Database.database().reference().child("requests_sent").child(user.uid)
+        
+        ref.queryEqual(toValue: nil, childKey: currentUID).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? [String : Bool] {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
+    
     static func isUserFriend(_ user: User, byCurrentUserWithCompletion completion: @escaping (Bool) -> Void) {
         let currentUID = User.current.uid
         let ref = Database.database().reference().child("friends").child(user.uid)
@@ -101,10 +114,10 @@ struct FriendService {
         })
     }
     
-    static func fetchFriendRequests(success: @escaping ([User]) -> Void) {
+    static func fetchFriendRequests(success: @escaping ([String]) -> Void) {
         let currentUID = User.current.uid
         let ref = Database.database().reference().child("requests_received").child(currentUID)
-        var requests = [User]()
+        var requests = [String]()
         
         ref.observeSingleEvent(of: .value, with: { (snapshots) in
             guard let snapshots = snapshots.children.allObjects as? [DataSnapshot] else {
@@ -112,12 +125,10 @@ struct FriendService {
             }
             
             for snapshot in snapshots {
-                guard let user = User(snapshot: snapshot) else {
-                    print("something went wrong with fetching friend requests")
-                    return
-                }
-                requests.append(user)
+                let user_uid = snapshot.key
+                requests.append(user_uid)
             }
+            
             success(requests)
         })
     }

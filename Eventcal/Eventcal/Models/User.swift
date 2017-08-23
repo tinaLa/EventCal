@@ -22,6 +22,7 @@ class User : NSObject {
     }
     
     var isRequested = false
+    var hasRequested = false
     var isFriend = false
     
     // Standard User init()

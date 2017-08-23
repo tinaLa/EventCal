@@ -33,7 +33,15 @@ class FindFriendsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         UserService.usersExcludingCurrentUser { [unowned self] (users) in
-            self.users = users
+            var filteredUsers = users
+            
+            for i in 0..<users.count {
+                if users[i].hasRequested {
+                    filteredUsers.remove(at: i)
+                }
+            }
+            
+            self.users = filteredUsers
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
