@@ -26,10 +26,10 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // FriendService.fetchFriends(uid: <#T##String#>, success: <#T##([User]) -> Void#>)
-        
         sideMenu()
+        FriendService.fetchFriends(uid: User.current.uid) { (friends) in
+            self.friends = friends
+        }
     }
 
     // MARK: - Table view data source

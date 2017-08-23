@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FindFriendsTableViewCellDelegate: class {
-    func didTapAddButton(_ followButton: UIButton, on cell: FindFriendsTableViewCell)
+    func didTapAddButton(_ addButton: UIButton, on cell: FindFriendsTableViewCell)
 }
 
 class FindFriendsTableViewCell: UITableViewCell {

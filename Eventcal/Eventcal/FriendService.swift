@@ -27,8 +27,12 @@ struct FriendService {
     
     static func deleteFriendRequest(_ user: User, success: @escaping (Bool) -> Void) {
         let currentUID = User.current.uid
-        let requestData = ["requests_received/\(user.uid)/\(currentUID)" : NSNull(),
-                           "requests_sent/\(currentUID)/\(user.uid)" : NSNull()]
+        let requestData = [
+            "requests_received/\(user.uid)/\(currentUID)" : NSNull(),
+            "requests_received/\(currentUID)/\(user.uid)" : NSNull(),
+            "requests_sent/\(user.uid)/\(currentUID)" : NSNull(),
+            "requests_sent/\(currentUID)/\(user.uid)" : NSNull(),
+        ]
         
         let ref = Database.database().reference()
         ref.updateChildValues(requestData) { (error, _) in

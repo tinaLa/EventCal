@@ -37,6 +37,9 @@
                                             <rect key="frame" x="301" y="7" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="+"/>
+                                            <connections>
+                                                <action selector="acceptFriendRequest:" destination="4kv-Mp-XMr" eventType="touchUpInside" id="WjF-Vu-2Vg"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gu7-KF-sKk">
                                             <rect key="frame" x="337" y="8" width="30" height="30"/>
