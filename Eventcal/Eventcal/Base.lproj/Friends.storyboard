@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -187,9 +186,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-Yh-7PD">
                                 <rect key="frame" x="87" y="120" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Dfa-SO-bKh"/>
-                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8m-D6-Pjc">
                                 <rect key="frame" x="87" y="346" width="200" height="21"/>
@@ -197,33 +193,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3og-9Z-Ek3">
+                                <rect key="frame" x="151" y="391" width="72" height="30"/>
+                                <state key="normal" title="Add friend"/>
+                                <connections>
+                                    <action selector="addFriend:" destination="jG7-YD-LJt" eventType="touchUpInside" id="ay7-aM-eAS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="trailing" secondItem="L8m-D6-Pjc" secondAttribute="trailing" id="1bt-LK-yQg"/>
-                            <constraint firstItem="L8m-D6-Pjc" firstAttribute="top" secondItem="4TQ-Yh-7PD" secondAttribute="bottom" constant="26" id="2jT-dg-Wwr"/>
-                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="leading" secondItem="L8m-D6-Pjc" secondAttribute="leading" id="58N-fm-kEf"/>
-                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="leading" secondItem="MSf-vY-0Ll" secondAttribute="leadingMargin" constant="71" id="cbf-5K-Pax"/>
-                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="centerX" secondItem="MSf-vY-0Ll" secondAttribute="centerX" id="g6i-oR-ukf"/>
-                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="top" secondItem="ZaS-mf-oUe" secondAttribute="bottom" constant="56" id="mVt-95-6Ac"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="leading" secondItem="MSf-vY-0Ll" secondAttribute="leadingMargin" constant="71" id="0lm-jv-TT5"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="top" secondItem="ZaS-mf-oUe" secondAttribute="bottom" constant="56" id="1Wz-Je-na9"/>
+                            <constraint firstItem="LWo-Ky-2VC" firstAttribute="top" secondItem="3og-9Z-Ek3" secondAttribute="bottom" constant="202" id="AVG-6H-xNI"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="trailing" secondItem="L8m-D6-Pjc" secondAttribute="trailing" id="Ti4-kf-HzP"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="centerX" secondItem="MSf-vY-0Ll" secondAttribute="centerX" id="Vte-lj-knJ"/>
+                            <constraint firstItem="4TQ-Yh-7PD" firstAttribute="leading" secondItem="L8m-D6-Pjc" secondAttribute="leading" id="e3G-aJ-nja"/>
+                            <constraint firstItem="3og-9Z-Ek3" firstAttribute="top" secondItem="L8m-D6-Pjc" secondAttribute="bottom" constant="24" id="sn4-6o-bdK"/>
+                            <constraint firstItem="L8m-D6-Pjc" firstAttribute="centerX" secondItem="3og-9Z-Ek3" secondAttribute="centerX" id="xIJ-MA-QgC"/>
+                            <constraint firstItem="L8m-D6-Pjc" firstAttribute="top" secondItem="4TQ-Yh-7PD" secondAttribute="bottom" constant="26" id="zK1-O2-bCJ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xTr-RK-L14">
-                        <rightBarButtonItems>
-                            <barButtonItem image="icons8-unfriend_male" id="25j-ZE-xFw"/>
-                            <barButtonItem image="icons8-add_user" id="ydD-XU-1hg"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="icons8-menu_2" id="Pb8-IE-ht7"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addFriendButton" destination="3og-9Z-Ek3" id="17n-N8-1I1"/>
                         <outlet property="nameLabel" destination="L8m-D6-Pjc" id="GsW-Sk-ZWG"/>
                         <outlet property="profilePictureView" destination="4TQ-Yh-7PD" id="gaQ-84-gsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJf-tA-yLi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4828" y="4795"/>
+            <point key="canvasLocation" x="-5663" y="4935"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pE6-IT-Bcl">
@@ -310,11 +314,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-add_user" width="25" height="25"/>
         <image name="icons8-add_user_group" width="25" height="25"/>
         <image name="icons8-inbox" width="25" height="25"/>
         <image name="icons8-menu" width="25" height="25"/>
-        <image name="icons8-unfriend_male" width="25" height="25"/>
+        <image name="icons8-menu_2" width="25" height="25"/>
         <image name="icons8-user_group_man_man" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

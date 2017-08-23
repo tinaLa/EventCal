@@ -74,7 +74,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/StorageService.swift"
-                  timestampString = "525125726.263465"
+                  timestampString = "525189756.572943"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -89,7 +89,7 @@
                   moduleName = "Eventcal"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/StorageService.swift"
-                  timestampString = "525125726.266337"
+                  timestampString = "525189756.575517"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -329,13 +329,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eventcal/Views/FindFriendsTableViewCell.swift"
-            timestampString = "525117270.465285"
+            filePath = "Eventcal/Controllers/OtherUserProfileViewController.swift"
+            timestampString = "525188788.388224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "awakeFromNib()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "addFriend(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -345,13 +345,124 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eventcal/Views/FindFriendsTableViewCell.swift"
-            timestampString = "525125726.105592"
+            filePath = "Eventcal/Controllers/FindFriendsTableViewController.swift"
+            timestampString = "525189093.350418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "addFriend(_:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eventcal.FindFriendsTableViewController.viewWillAppear (Swift.Bool) -&gt; ()"
+                  moduleName = "Eventcal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/FindFriendsTableViewController.swift"
+                  timestampString = "525189756.615209"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "150">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eventcal.FindFriendsTableViewController.(viewWillAppear (Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "Eventcal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/FindFriendsTableViewController.swift"
+                  timestampString = "525189756.618196"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eventcal.FindFriendsTableViewController.(viewWillAppear (Swift.Bool) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Eventcal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Controllers/FindFriendsTableViewController.swift"
+                  timestampString = "525189756.622363"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Services/UserService.swift"
+            timestampString = "525189127.181322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "usersExcludingCurrentUser(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Eventcal.UserService.(usersExcludingCurrentUser (completion : (Swift.Array&lt;Eventcal.User&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #2)"
+                  moduleName = "Eventcal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/UserService.swift"
+                  timestampString = "525189756.630553"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Eventcal.UserService.(usersExcludingCurrentUser (completion : (Swift.Array&lt;Eventcal.User&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #2).(closure #1)"
+                  moduleName = "Eventcal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tinala/Desktop/My_Apps/EventCal/Eventcal/Eventcal/Services/UserService.swift"
+                  timestampString = "525189756.633959"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eventcal/Services/UserService.swift"
+            timestampString = "525189127.87865"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "usersExcludingCurrentUser(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

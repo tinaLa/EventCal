@@ -14,6 +14,7 @@ class OtherUserProfileViewController: UIViewController {
     
     @IBOutlet weak var profilePictureView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addFriendButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -41,4 +42,17 @@ class OtherUserProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func addFriend(_ sender: Any) {
+        guard let user = user else { return }
+        
+        addFriendButton.isEnabled = false
+        
+        FriendService.setIsRequested(!user.isRequested, fromCurrentUserTo: user) { (success) in
+            defer {
+                self.addFriendButton.isEnabled = true
+            }
+            guard success else { return }
+            user.isRequested = !user.isRequested
+        }
+    }
 }

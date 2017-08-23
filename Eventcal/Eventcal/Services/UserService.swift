@@ -90,8 +90,8 @@ struct UserService {
             users.forEach { (user) in
                 dispatchGroup.enter()
 
-                FriendService.isUserFriend(user) { (isFriend) in
-                    user.isFriend = isFriend
+                FriendService.isUserRequested(user) { (isRequested) in
+                    user.isRequested = isRequested
                     dispatchGroup.leave()
                 }
             }

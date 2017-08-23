@@ -77,9 +77,9 @@ struct FriendService {
     
     static func isUserRequested(_ user: User, byCurrentUserWithCompletion completion: @escaping (Bool) -> Void) {
         let currentUID = User.current.uid
-        let ref = Database.database().reference().child("requests_sent").child(user.uid)
+        let ref = Database.database().reference().child("requests_sent").child(currentUID)
         
-        ref.queryEqual(toValue: nil, childKey: currentUID).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.queryEqual(toValue: nil, childKey: user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? [String : Bool] {
                 completion(true)
             } else {
