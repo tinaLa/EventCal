@@ -19,8 +19,13 @@ class OtherUserProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         guard let user = user else { return }
-        nameLabel.text = "\(user.firstName) \(user.lastName)"
+        
         self.retrievePicture()
+        nameLabel.text = "\(user.firstName) \(user.lastName)"
+        
+        addFriendButton.isSelected = user.isRequested
+        addFriendButton.setTitle("Add friend", for: .normal)
+        addFriendButton.setTitle("Request Sent", for: .selected)
     }
     
     func retrievePicture() {
@@ -45,6 +50,7 @@ class OtherUserProfileViewController: UIViewController {
     @IBAction func addFriend(_ sender: Any) {
         guard let user = user else { return }
         
+        addFriendButton.isSelected = !addFriendButton.isSelected
         addFriendButton.isEnabled = false
         
         FriendService.setIsRequested(!user.isRequested, fromCurrentUserTo: user) { (success) in
