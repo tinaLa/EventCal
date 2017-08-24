@@ -12,7 +12,11 @@ class FindFriendsTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var users = [User]()
+    var users = [User]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     func sideMenu() {
         if revealViewController() != nil {
@@ -33,14 +37,14 @@ class FindFriendsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         UserService.usersExcludingCurrentUser { [unowned self] (users) in
-            var filteredUsers = users
+            var filteredUsers = users.filter({ $0.isFriend == false && $0.hasRequested == false})
             
-            for i in 0..<users.count {
-                if users[i].hasRequested {
-                    filteredUsers.remove(at: i)
-                }
-            }
-            
+//            for i in 0..<users.count {
+//                if users[i].hasRequested || users[i].isFriend {
+//                    filteredUsers.remove(at: i)
+//                }
+//            }
+//            
             self.users = filteredUsers
             
             DispatchQueue.main.async {

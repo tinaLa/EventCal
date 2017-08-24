@@ -52,6 +52,7 @@
                                     <outlet property="addButton" destination="v8f-l6-tEv" id="acF-Gr-GR4"/>
                                     <outlet property="deleteButton" destination="Gu7-KF-sKk" id="sXU-uL-8Oc"/>
                                     <outlet property="nameLabel" destination="VTb-Zf-n4W" id="QyG-J9-4WP"/>
+                                    <segue destination="jG7-YD-LJt" kind="show" identifier="viewProfile" id="Kqx-Ly-kYg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -88,7 +89,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="871-Gh-CXd">
-                                            <rect key="frame" x="14" y="10" width="45" height="24"/>
+                                            <rect key="frame" x="14" y="10" width="353" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -98,6 +99,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="871-Gh-CXd" id="DdO-sS-JL9"/>
+                                    <segue destination="jG7-YD-LJt" kind="show" identifier="viewProfile" id="3n3-Oh-G3u"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -323,5 +325,8 @@
         <image name="icons8-menu_2" width="25" height="25"/>
         <image name="icons8-user_group_man_man" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3n3-Oh-G3u"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

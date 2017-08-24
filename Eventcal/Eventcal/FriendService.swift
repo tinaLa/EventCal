@@ -118,7 +118,7 @@ struct FriendService {
         })
     }
     
-    static func fetchFriendRequests(success: @escaping ([String]) -> Void) {
+    private static func fetchRequestUIDs(success: @escaping ([String]?) -> Void) {
         let currentUID = User.current.uid
         let ref = Database.database().reference().child("requests_received").child(currentUID)
         var requests = [String]()
@@ -137,23 +137,65 @@ struct FriendService {
         })
     }
     
-    static func fetchFriends(uid: String, success: @escaping ([User]) -> Void) {
+    static func fetchFriendRequests(success: @escaping ([User]?) -> Void) {
+        FriendService.fetchRequestUIDs { (uids) in
+            guard let uids = uids else { return }
+            var requests = [User]()
+            
+            let dispatchGroup = DispatchGroup()
+            uids.forEach { (uid) in
+                dispatchGroup.enter()
+                
+                UserService.show(forUID: uid, completion: { (user) in
+                    guard let user = user else { return }
+                    user.hasRequested = !user.hasRequested
+                    requests.append(user)
+                    dispatchGroup.leave()
+                })
+            }
+            
+            dispatchGroup.notify(queue: .main, execute: {
+                success(requests)
+            })
+        }
+    }
+    
+    private static func fetchFriendUIDs(uid: String, success: @escaping ([String]?) -> Void) {
         let ref = Database.database().reference().child("friends").child(uid)
-        var friends = [User]()
+        var friends = [String]()
         
         ref.observeSingleEvent(of: .value, with: { (snapshots) in
             guard let snapshots = snapshots.children.allObjects as? [DataSnapshot] else {
                 return success([])
             }
-            
             for snapshot in snapshots {
-                guard let user = User(snapshot: snapshot) else {
-                    print("something went wrong with fetching friends")
-                    return
-                }
-                friends.append(user)
+                let user_uid = snapshot.key
+                friends.append(user_uid)
             }
             success(friends)
         })
+    }
+    
+    static func fetchFriends(uid: String, success: @escaping ([User]) -> Void) {
+        FriendService.fetchFriendUIDs(uid: uid) { (uids) in
+            guard let uids = uids else { return }
+            var friends = [User]()
+            
+            let dispatchGroup = DispatchGroup()
+            uids.forEach { (uid) in
+                dispatchGroup.enter()
+                
+                UserService.show(forUID: uid, completion: { (user) in
+                    guard let user = user else { return }
+                    user.isFriend = true
+                    friends.append(user)
+                    dispatchGroup.leave()
+                })
+            }
+            
+            dispatchGroup.notify(queue: .main, execute: {
+                success(friends)
+            })
+        }
     }
 }

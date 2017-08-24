@@ -96,6 +96,10 @@ struct UserService {
                 
                 FriendService.hasUserRequested(user) { (hasRequested) in
                     user.hasRequested = hasRequested
+                }
+                
+                FriendService.isUserFriend(user) { (isFriend) in
+                    user.isFriend = isFriend
                     dispatchGroup.leave()
                 }
             }

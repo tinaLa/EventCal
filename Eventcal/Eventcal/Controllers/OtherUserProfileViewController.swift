@@ -23,9 +23,21 @@ class OtherUserProfileViewController: UIViewController {
         self.retrievePicture()
         nameLabel.text = "\(user.firstName) \(user.lastName)"
         
-        addFriendButton.isSelected = user.isRequested
-        addFriendButton.setTitle("Add friend", for: .normal)
-        addFriendButton.setTitle("Request Sent", for: .selected)
+        addFriendButton.isSelected = user.isRequested || user.isFriend
+        
+        if user.hasRequested {
+            addFriendButton.setTitle("Accept friend request", for: .normal)
+            addFriendButton.setTitle("Unfriend", for: .selected)
+        }
+        else if user.isFriend {
+            addFriendButton.setTitle("Add friend", for: .normal)
+            addFriendButton.setTitle("Unfriend", for: .selected)
+        }
+        else {
+            addFriendButton.setTitle("Add friend", for: .normal)
+            addFriendButton.setTitle("Request Sent", for: .selected)
+        }
+        
     }
     
     func retrievePicture() {
@@ -53,12 +65,31 @@ class OtherUserProfileViewController: UIViewController {
         addFriendButton.isSelected = !addFriendButton.isSelected
         addFriendButton.isEnabled = false
         
-        FriendService.setIsRequested(!user.isRequested, fromCurrentUserTo: user) { (success) in
-            defer {
-                self.addFriendButton.isEnabled = true
+        if user.hasRequested {
+            FriendService.acceptFriendRequest(user) { (success) in
+                defer {
+                    self.addFriendButton.isEnabled = true
+                }
+                guard success else { return }
+                user.isFriend = !user.isFriend
             }
-            guard success else { return }
-            user.isRequested = !user.isRequested
+        } else if user.isFriend {
+            FriendService.deleteFriend(user) { (success) in
+                defer {
+                    self.addFriendButton.isEnabled = true
+                }
+                guard success else { return }
+                user.isFriend = !user.isFriend
+            }
+        } else {
+            FriendService.setIsRequested(!user.isRequested, fromCurrentUserTo: user) { (success) in
+                defer {
+                    self.addFriendButton.isEnabled = true
+                }
+                guard success else { return }
+                user.isRequested = !user.isRequested
+            }
         }
+        
     }
 }

@@ -30,19 +30,25 @@ class FriendRequestTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenu()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         FriendService.fetchFriendRequests { (requests) in
-            self.request_uids = requests
-            
-            for uid in self.request_uids {
-                UserService.show(forUID: uid, completion: { (user) in
-                    guard let user = user else { return }
-                    self.requests.append(user)
-                })
-            }
+            guard let requests = requests else { return }
+            self.requests = requests
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewProfile" {
+            let destinationViewController = segue.destination as! OtherUserProfileViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedUser = requests[indexPath.row]
+            destinationViewController.user = selectedUser
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
